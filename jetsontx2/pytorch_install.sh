@@ -21,6 +21,7 @@ download https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/re
 sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install alien
+sudo apt-get install nano
 sudo alien ninja-1.8.2-3.mga7.aarch64.rpm
    #If previous line fails, proceed to <$sudo dpkg -i ninja-1.8.2-3.mga7.aarch64.deb> 
    sudo alien -g ninja-1.8.2-3.mga7.aarch64.rpm
