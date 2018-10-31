@@ -1,8 +1,6 @@
 # DLARM
-
 ##Deep Learning on ARM
-
-###This repository presents the research of four Deep Learning frameworks in a unique experiment.
+######This repository presents the research of four Deep Learning frameworks in a unique experiment.
 
 
 
