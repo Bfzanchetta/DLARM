@@ -31,13 +31,14 @@ sudo alien ninja-1.8.2-3.mga7.aarch64.rpm
 cd ..
 sudo dpkg -i ninja_1.8.2-4_arm64.deb
 sudo apt install ninja-build
-
+cd ..
 git clone http://github.com/pytorch/pytorch
 cd pytorch
 sudo pip install -U setuptools
 sudo pip install -r requirements.txt
-python setup.py build_deps
 git submodule update --init --recursive
+python setup.py build_deps
+
 sudo nvpmodel -m 0
 sudo NO_CUDA=1 DEBUG=1 python setup.py build develop
 
