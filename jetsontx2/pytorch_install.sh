@@ -4,7 +4,6 @@ sudo apt-get install python-pip
 sudo pip install numpy scipy # ~20-30 min
 sudo pip install pyyaml
 sudo pip install scikit-build
-sudo apt install ninja-build
 sudo apt-get -y install cmake
 sudo apt install libffi-dev
 sudo pip install cffi
@@ -29,7 +28,9 @@ sudo alien ninja-1.8.2-3.mga7.aarch64.rpm
    sudo nano debian/control
    #at architecture, add arm64 after aarch64 (aarch64, arm64)
    sudo debian/rules binary
+cd ..
 sudo dpkg -i ninja_1.8.2-4_arm64.deb
+sudo apt install ninja-build
 
 git clone http://github.com/pytorch/pytorch
 cd pytorch
