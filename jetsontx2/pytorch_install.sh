@@ -37,11 +37,22 @@ cd pytorch
 sudo pip install -U setuptools
 sudo pip install -r requirements.txt
 git submodule update --init --recursive
-python setup.py build_deps
+
+sudo gedit /pytorch/CMakesList.txt
+   > CmakeLists.txt : Change NCCL to 'Off' on line 97
+sudo gedit /pytorch/setup.py
+   > setup.py: Add USE_NCCL = False below line 198
+sudo gedit /pytorch/tools/setup_helpers/nccl.py
+   > nccl.py : Change USE_SYSTEM_NCCL to 'False' on line 8
+               Change NCCL to 'False' on line 78
 
 sudo nvpmodel -m 0
-sudo NO_CUDA=1 DEBUG=1 python setup.py build develop
+python setup.py build_deps
+sudo DEBUG=1 python setup.py build develop
 
+#If build fails on 99%
+sudo python setup.py clean
+sudo DEBUG=1 python setup.py build develop
 
 sudo apt clean
 sudo apt-get install libjpeg-dev zlib1g-dev
