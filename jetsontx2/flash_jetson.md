@@ -25,9 +25,11 @@ Outro cuidado que se deve tomar é em relação ao sistema operacional do comput
 
 Às vezes o instalador também demonstra erros no instalador para Ubuntu 16.04, para isso é importante usar alguns comandos, que também servem a alguns instaladores em 18.04:
 
+```
 sudo wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
 && sudo dpkg -i /tmp/libpng12.deb \
 && sudo rm /tmp/libpng12.deb  
+```
 
 ##### Para a instalação apenas do SO sem JetPack siga: 
 
