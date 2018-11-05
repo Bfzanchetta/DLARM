@@ -67,7 +67,7 @@ sudo DEBUG=1 python setup.py develop
 
 sudo apt clean
 sudo apt-get install libjpeg-dev zlib1g-dev
-sudo pip install pandas
+sudo pip install pandas # ~20-30 min
 git clone https://github.com/python-pillow/Pillow.git
 cd Pillow/
 sudo python setup.py install
