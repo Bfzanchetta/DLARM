@@ -40,6 +40,14 @@ sudo gedit start_up.sh
 sudo ./Launcher
 #Proceed to normal installation
 ```
+Nesse instalador, o computador padrão(host) vai pré-instalar todos arquivos localmente, ao finalizar ele estará pronto para passar essa instalação à placa Jetson. Basta ligar as duas máquinas pela mini-USB (ponta USB normal no computador e mini-USB na Jetson).
+
+Para confirmar a conexão, use o comando ```$lsusb``` para encontrar o hardware da NVIDIA Corp.
+Além disso, sugere-se que tanto a placa quanto o computador padrão estejam ligados simultaneamente no mesmo switch por meio de cabos ethernet.
+
+O procedimento leva alguns minutos(~20-35min) e termina pedindo que se feche a tela de instalação.
+
+A placa está pronta para ser usada.  
 
 ##### Para a instalação apenas do SO sem JetPack siga: 
 
