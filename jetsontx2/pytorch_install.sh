@@ -67,11 +67,13 @@ sudo DEBUG=1 python setup.py develop
 
 sudo apt clean
 sudo apt-get install libjpeg-dev zlib1g-dev
-sudo pip install pandas # ~20-30 min
-sudo pip install Cython
 
 git clone https://github.com/python-pillow/Pillow.git
 cd Pillow/
 sudo python setup.py install
+sudo pip install pandas # ~20-30 min
+sudo pip install Cython
+sudo pip install scikit-image
+
 sudo pip --no-cache-dir install torchvision
 
