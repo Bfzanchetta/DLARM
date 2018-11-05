@@ -1,12 +1,12 @@
-#Steps to Flash NVIDIA Jetson TX2#
+# Steps to Flash NVIDIA Jetson TX2#
 
-##In English##
+## In English##
 To-do
 
 
 
 
-##In Portuguese-BR##
+## In Portuguese-BR##
 
 Ao iniciar a usar a placa, ela necessita de um Flash, ou seja, necessita ser reiniciada para as configurações de fábrica. Para realizar o Flash, deve-se entrar no site da NVIDIA e encontrar qual versão de Ubuntu e JetPack se deseja instalar.
 
