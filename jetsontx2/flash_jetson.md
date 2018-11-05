@@ -30,6 +30,16 @@ sudo wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/lib
 && sudo dpkg -i /tmp/libpng12.deb \
 && sudo rm /tmp/libpng12.deb  
 ```
+Seguido de:
+
+```
+./JetPack-<version>.run --noexec #This will create a pre-installation folder
+cd _installer #enter this folder
+sudo gedit start_up.sh
+  >>> remove code at end of file, from the last if to EOF
+sudo ./Launcher
+#Proceed to normal installation
+```
 
 ##### Para a instalação apenas do SO sem JetPack siga: 
 
