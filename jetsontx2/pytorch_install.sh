@@ -43,7 +43,7 @@ git submodule update --init --recursive
 
 python setup.py build_deps
 
-sudo gedit /pytorch/CMakesList.txt
+sudo gedit /pytorch/CMakeList.txt
    > CmakeLists.txt : Change NCCL to 'Off' on line 97
 sudo gedit /pytorch/setup.py
    > setup.py: Add USE_NCCL = False below line 198
