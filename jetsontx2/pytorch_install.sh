@@ -1,6 +1,10 @@
 sudo apt install libopenblas-dev libatlas-dev liblapack-dev
 sudo apt install liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
+
+
+pip install --upgrade pip==9.0.1
+
 sudo pip install numpy scipy # ~20-30 min
 sudo pip install pyyaml
 sudo pip install scikit-build
@@ -13,7 +17,6 @@ sudo gedit ~/.bashrc
 export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu
 export CUDNN_INCLUDE_DIR=/usr/include
 
-pip install --upgrade pip==9.0.1
 
 download https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.8.2-3.mga7.aarch64.rpm
 
