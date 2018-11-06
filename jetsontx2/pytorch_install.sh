@@ -18,7 +18,7 @@ export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu
 export CUDNN_INCLUDE_DIR=/usr/include
 source ~/.bashrc
 
-download https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.8.2-3.mga7.aarch64.rpm
+wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.8.2-3.mga7.aarch64.rpm
 
 sudo add-apt-repository universe
 sudo apt-get update
