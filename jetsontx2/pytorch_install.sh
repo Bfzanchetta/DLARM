@@ -2,8 +2,8 @@ sudo apt install libopenblas-dev libatlas-dev liblapack-dev
 sudo apt install liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
 
-
 pip install --upgrade pip==9.0.1
+sudo apt-get install python-dev
 
 sudo pip install numpy scipy # ~20-30 min
 sudo pip install pyyaml
