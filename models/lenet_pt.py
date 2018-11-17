@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import time
 import os
 import copy
+import torch.nn.functional as F
 
 def train_model(model, dataloaders, criterion, optimizer, num_epochs=25, is_inception=False):
     since = time.time()
