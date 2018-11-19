@@ -1,30 +1,34 @@
-#####################################
-# AlexNet implementation in PyTorch #
-# Adapted by Breno Zanchetta        #
-#####################################
+'''AlexNet in Pytorch.'''
+'''Breno Zanchetta'''
+
+import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 class AlexNet(nn.Module):
     def __init__(self):
         super(AlexNet, self).__init__()
-        self.conv1 = nn.Conv2d(3, 48, 11)
-        self.conv2 = nn.Conv2d(48, 128, 5)
-        self.conv3 = nn.Conv2d(128, 192, 3)
-        self.conv4 = nn.Conv2d(192, 192, 3)
-        self.conv5 = nn.Conv2d(192, 128, 3)
-        #Parei aqui
-        self.fc1   = nn.Linear(16*5*5, 120)
-        self.fc2   = nn.Linear(120, 84)
-        self.fc3   = nn.Linear(84, 10)
+        self.conv1 = nn.Conv2d(3, 96, kernel_size=11, stride=4, bias=False)
+        self.conv2 = nn.Conv2d(48, 128, kernel_size=5, stride=1, bias=False)
+        self.conv3 = nn.Conv2d(128, 192, kernel_size=3, stride=1, bias=False)
+        self.conv4 = nn.Conv2d(192, 192, kernel_size=3, stride=1, bias=False)
+        self.conv5 = nn.Conv2d(192, 128, kernel_size=3, stride=1, bias=False)
+        self.fc1   = nn.Linear(128*2*3*3,2048*2)
+        self.fc2   = nn.Linear(2048*2, 2048*2)
+        self.fc3   = nn.Linear(2048*2, 1000)
 
     def forward(self, x):
         out = F.relu(self.conv1(x))
         out = F.max_pool2d(out, 2)
         out = F.relu(self.conv2(out))
         out = F.max_pool2d(out, 2)
+        out = F.relu(self.conv3(out))
+        out = F.relu(self.conv4(out))
+        out = F.relu(self.conv5(out))
+        out = F.max_pool2d(out, 2)
         out = out.view(out.size(0), -1)
         out = F.relu(self.fc1(out))
+        out = F.dropout2d(out, 0.5)
         out = F.relu(self.fc2(out))
+        out = F.dropout2d(out, 0.5)
         out = self.fc3(out)
         return out
