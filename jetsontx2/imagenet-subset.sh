@@ -13,6 +13,7 @@ for i in `ls`; do echo -n "\"$aux\" "; done >> output.txt
 array=(`imagenet_labels.txt`)
 echo array
 
+N=14
 #for element in "${array[@]}"
 
 
