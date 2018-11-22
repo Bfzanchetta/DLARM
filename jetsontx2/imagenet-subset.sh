@@ -15,7 +15,7 @@ echo array
 
 N=14
 #for element in "${array[@]}"
-
+#contador de arquivos numa folder: $ls | wc -l
 
 #wget https://rawgit.com/dusty-nv/jetson-inference/master/tools/imagenet-subset.sh
 #chmod +x imagenet-subset.sh
