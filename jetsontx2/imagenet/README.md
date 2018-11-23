@@ -30,3 +30,8 @@
    - [x] Code author @kassianojm
    - Description: to-do
    - How to use: to-do
+
+6. stddev.sh
+   - [x] Code author @bfzanchetta
+   - Description: to-do
+   - How to use: to-do
