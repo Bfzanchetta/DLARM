@@ -17,6 +17,10 @@ N=14
 #for element in "${array[@]}"
 #contador de arquivos numa folder: $ls | wc -l
 
+#counts number of files on all sub folders of current directory
+aux=0; for i in `ls`; do cd /home/nvidia/dataset/train/$i; aux=$(($aux+($(ls | wc -l))+1)); cd ..; done
+echo $aux
+
 #wget https://rawgit.com/dusty-nv/jetson-inference/master/tools/imagenet-subset.sh
 #chmod +x imagenet-subset.sh
 #mkdir 12_classes
