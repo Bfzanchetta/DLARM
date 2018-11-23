@@ -12,10 +12,10 @@
    - [x] Code author @dusty-nv
 
 3. imagenet-subset.sh
-   - [ ] Code author @github/bfzanchetta, contribution: @kassianojm 
+   - [ ] Code author @bfzanchetta, contribution: @kassianojm 
 
 4. imagenet_labels.txt
-   - [x] File author @github/bfzanchetta
+   - [x] File author @bfzanchetta
 
 5. prepareImageNetDataset.sh
    - [x] Code author @kassianojm
