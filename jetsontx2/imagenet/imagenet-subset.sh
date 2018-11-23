@@ -1,7 +1,4 @@
 #!/bin/bash
-#original code by: dusty-nv
-#new code by: Breno Zanchetta (bfzanchetta)
-#thanks to Kassiano Matteussi
 
 #for .tar imagenet:
 #for i in `ls`; do aux=`echo $i| cut -d "." -f1`; echo -n "\"$aux\" "; done >> output.txt
