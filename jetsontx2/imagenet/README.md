@@ -6,13 +6,13 @@
 ###### More details To-Do ######
 
 1. download_imagenet.sh
-   - [x] Code author @github/dusty-nv
+   - [x] Code author @dusty-nv
 
 2. ilsvrc12_synset_words.txt
-   - [x] Code author @github/dusty-nv
+   - [x] Code author @dusty-nv
 
 3. imagenet-subset.sh
-   - [ ] Code author @github/bfzanchetta, contribution: Kassiano Matteussi
+   - [ ] Code author @github/bfzanchetta, contribution: @kassianojm 
 
 4. imagenet_labels.txt
    - [x] File author @github/bfzanchetta
