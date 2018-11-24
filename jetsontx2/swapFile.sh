@@ -6,5 +6,5 @@ mkswap swapfile
 sudo swapon swapfile
 swapon -s
 sudo gedit /etc/fstab
-    > endereço_do_arquivo_swapfile(com o nome do arquivo)	none	swap	sw	0	0
+    > swapfile_adress(including the filename)	none	swap   	sw    0    0
 reboot
