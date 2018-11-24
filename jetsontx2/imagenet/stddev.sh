@@ -24,3 +24,4 @@ upperICNinetyFive=$((($mean)+1,64*(($stddev) / ($amountOfFiles))));
 lowerICNinetyNine=$((($mean)-2,965*(($stddev) / ($amountOfFiles))));
 upperICNinetyNine=$((($mean)+2,965*(($stddev) / ($amountOfFiles))));
 
+random=$(echo "shuf -i1-1000 -n1");
