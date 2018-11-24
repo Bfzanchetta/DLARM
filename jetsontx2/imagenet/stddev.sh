@@ -17,3 +17,10 @@ acc=$(($acc / ($amountOfFiles)));
 stddev=$(echo "sqrt ( ($acc) )" | bc -l) ; 
 echo 'stddev'
 echo $stddev
+
+lowerICNinetyFive=$((($mean)-1,64*(($stddev) / ($amountOfFiles))));
+upperICNinetyFive=$((($mean)+1,64*(($stddev) / ($amountOfFiles))));
+
+lowerICNinetyNine=$((($mean)-2,965*(($stddev) / ($amountOfFiles))));
+upperICNinetyNine=$((($mean)+2,965*(($stddev) / ($amountOfFiles))));
+
