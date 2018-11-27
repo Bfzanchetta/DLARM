@@ -1,29 +1,37 @@
 #!/bin/bash
+mean=114667,24;
+amountOfFiles=0;
+R=$((RANDOM%1000+1));
+acc=0;
+N=12;
+cd train/;
+for i in `ls`;
+        do cd $i;
+        for j in `ls`;
+                do std=$(stat -c '%s' "$j");
+                aux=$((std-(mean)));
+                acc=$(((acc)+((aux)^2)));
+                amountOfFiles=$((amountOfFiles+1));
+                done;
+        cd ..; 
+        done;
+echo 'end for'
+acc=$((acc / (amountOfFiles)));
+stddev=$(echo "sqrt ( ($acc) )" | bc -l) ; 
+echo 'stddev'
+echo $stddev
 
-#for .tar imagenet:
-#for i in `ls`; do aux=`echo $i| cut -d "." -f1`; echo -n "\"$aux\" "; done >> output.txt
-#
-#for folders:
-for i in `ls`; do echo -n "\"$aux\" "; done >> output.txt
+#lowerICNinetyFive=$((($mean)-1,64*(($stddev) / ($amountOfFiles))));
+#upperICNinetyFive=$((($mean)+1,64*(($stddev) / ($amountOfFiles))));
 
-#array=("A" "B" "ElementC" "ElementE")
-array=(`imagenet_labels.txt`)
-echo array
+#lowerICNinetyNine=$((($mean)-2,965*(($stddev) / ($amountOfFiles))));
+#upperICNinetyNine=$((($mean)+2,965*(($stddev) / ($amountOfFiles))));
 
-N=14
-#for element in "${array[@]}"
-#contador de arquivos numa folder: $ls | wc -l
-
-#counts number of files on all sub folders of current directory
-aux=0; for i in `ls`; do cd /home/nvidia/dataset/train/$i; aux=$(($aux+($(ls | wc -l))+1)); cd ..; done
-echo $aux
-
-#wget https://rawgit.com/dusty-nv/jetson-inference/master/tools/imagenet-subset.sh
-#chmod +x imagenet-subset.sh
-#mkdir 12_classes
-#./imagenet-subset.sh /opt/datasets/imagenet/ilsvrc12 12_classes
-#mkdir subset_training_folder
-#mv imagenet-subset.sh
-
-
-#for i in `ls`; do echo "Extracting $i ..."; aux=`echo $i| cut -d "." -f1`;mkdir $aux; tar -xvf $i -C $aux; done
+#Selects the random folders#
+a=( * )
+randf=()
+for((i=0;i<N && ${#a[@]};++i)); do
+    ((j=RANDOM%${#a[@]}))
+    
+    echo ${a[j]}
+    #resto da logica de verificacao aqui
