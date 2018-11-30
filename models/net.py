@@ -97,15 +97,15 @@ lenet = LeNet().to(device)
 optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4)
 
 for i in range(epochs):
-        losses = AverageMeter()
         since = time.time()
         for i, (input, device) in enumerate(trainset_loader):
-                train = lenet.forward(trainset_loader)
+                train = lenet.forward(input)
                 loss = loss_fn(train, device)
+
                 optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
                 
-        loss.backward()
-        optimizer.step()
         print("So far so good")
 
 time_elapsed = time.time() - since
