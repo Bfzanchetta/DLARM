@@ -115,7 +115,7 @@ for i in range(epochs):
         for j, (input, targets) in enumerate(trainset_loader):
                 input, targets = input.to(device), targets.to(device)
                 input = torch.autograd.Variable(input)
-		train = lenet(input)
+		train = brenonet(input)
 		print("Passo de Treinamento ",(i+1)*(j),"concluido.")
                 targets = torch.autograd.Variable(targets)
 		loss = loss_fc(train, targets)
