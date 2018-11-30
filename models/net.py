@@ -24,16 +24,23 @@ data_transform = transforms.Compose([
                              std=[0.229, 0.224, 0.225])
     ])
 
-miniImageNet_dataset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
+#Loading Dataset 
+miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
+                                           transform=data_transform)
+miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
                                            transform=data_transform)
                                            
-dataset_loader = torch.utils.data.DataLoader(miniImageNet_dataset,
+trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
+                                             batch_size=4, shuffle=True,
+                                             num_workers=4)
+
+validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
                                              batch_size=4, shuffle=True,
                                              num_workers=4)
 
 print("It Works")
 
-
+#Definition of the Model
 class LeNet(nn.Module):
     def __init__(self):
         super(LeNet, self).__init__()
@@ -53,3 +60,15 @@ class LeNet(nn.Module):
         out = F.relu(self.fc2(out))
         out = self.fc3(out)
         return out
+
+#Loss Function Definition
+loss_fn = torch.nn.MSELoss(reduction='sum')
+learning_rate = 1e-4
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+for i in range(epochs):
+        train = LeNet()
+        
+
+
+
