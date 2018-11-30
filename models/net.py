@@ -18,8 +18,9 @@ device = torch.device("cpu")
 #Parameters
 num_classes = 3
 learning_rate = 1e-4
+epochs = 10
 
-data_transform = transforms.Compose([
+data_transform_train = transforms.Compose([
         transforms.RandomSizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
@@ -27,12 +28,20 @@ data_transform = transforms.Compose([
                              std=[0.229, 0.224, 0.225])
     ])
 
+data_transform_val = transforms.Compose([
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                             std=[0.229, 0.224, 0.225])
+    ])
+
 #Loading Dataset 
 miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
-                                           transform=data_transform)
+                                           transform=data_transform_train)
 
 miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
-                                           transform=data_transform)
+                                           transform=data_transform_val)
                                            
 trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
                                              batch_size=4, shuffle=True,
@@ -71,12 +80,9 @@ loss_fn = torch.nn.MSELoss(reduction='sum')
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
 
 for i in range(epochs):
-        train = LeNet()
-        loss = loss_fn(train, y)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-        
-
-
-
+        #train = LeNet()
+        #loss = loss_fn(train, y)
+        #optimizer.zero_grad()
+        #loss.backward()
+        #optimizer.step()
+        print("So far so good")
