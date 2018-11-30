@@ -44,7 +44,7 @@ validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
 print("It Works")
 
 #Definition of the Model
-class LeNet(nn.Module):
+class LeNet(nn.Module, num_classes):
     def __init__(self):
         super(LeNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
