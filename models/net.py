@@ -94,7 +94,7 @@ loss_fn = torch.nn.MSELoss(reduction='sum')
 #criterion = nn.CrossEntropyLoss().cuda(args.gpu)
 
 lenet = LeNet().to(device)
-optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4, momentum=0.9)
+optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4)
 
 for i in range(epochs):
         losses = AverageMeter()
