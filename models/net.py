@@ -77,16 +77,16 @@ class LeNet(nn.Module):
 
 #Loss Function Definition
 loss_fn = torch.nn.MSELoss(reduction='sum')
-
-#optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, momentum=0.9)
+lenet = LeNet().to(device)
+optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4, momentum=0.9)
 
 for i in range(epochs):
         since = time.time()
-        #train = LeNet()
-        #loss = loss_fn(train, y)
-        #optimizer.zero_grad()
-        #loss.backward()
-        #optimizer.step()
+        lenet.forward(miniImageNet_trainset)
+        loss = loss_fn(train)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
         print("So far so good")
 
 time_elapsed = time.time() - since
