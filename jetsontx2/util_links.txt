@@ -1,0 +1,2 @@
+#For problems with locale
+https://askubuntu.com/questions/359753/gtk-warning-locale-not-supported-by-c-library-when-starting-apps-from-th
