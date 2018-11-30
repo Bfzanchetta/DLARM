@@ -79,7 +79,7 @@ class LeNet(nn.Module):
 #Loss Function Definition
 loss_fn = torch.nn.MSELoss(reduction='sum')
 
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
+#optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
 
 for i in range(epochs):
         since = time.time()
