@@ -1,13 +1,27 @@
 from torchvision import datasets,transforms, utils
 from torch.utils.data import Dataset, DataLoader
+from skimage import io, transform
+
 import os
 import torch
 import time
-from skimage import io, transform
+import argparse
+import random
+import shutil
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch.nn.functional as F
+#import torch.nn.parallel
+#import torch.backends.cudnn as cudnn
+#import torch.distributed as dist
+#import torch.optim
+#import torch.multiprocessing as mp
+#import torch.utils.data.distributed
+#import torchvision.transforms as transforms
+#import torchvision.datasets as datasets
+#import torchvision.models as models
 # Ignore warnings
 import warnings
 warnings.filterwarnings("ignore")
@@ -77,17 +91,25 @@ class LeNet(nn.Module):
 
 #Loss Function Definition
 loss_fn = torch.nn.MSELoss(reduction='sum')
+#criterion = nn.CrossEntropyLoss().cuda(args.gpu)
+
 lenet = LeNet().to(device)
 optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4, momentum=0.9)
 
 for i in range(epochs):
+        losses = AverageMeter()
         since = time.time()
-        lenet.forward(trainset_loader)
-        loss = loss_fn(train)
-        optimizer.zero_grad()
+        for i, (input, device) in enumerate(trainset_loader):
+                train = lenet.forward(trainset_loader)
+                loss = loss_fn(train, device)
+                optimizer.zero_grad()
+                
         loss.backward()
         optimizer.step()
         print("So far so good")
 
 time_elapsed = time.time() - since
 print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+
+if __name__ == '__main__':
+        main()
