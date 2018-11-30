@@ -82,7 +82,7 @@ optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4, momentum=0.9)
 
 for i in range(epochs):
         since = time.time()
-        lenet.forward(miniImageNet_trainset)
+        lenet.forward(trainset_loader)
         loss = loss_fn(train)
         optimizer.zero_grad()
         loss.backward()
