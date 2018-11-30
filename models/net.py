@@ -71,6 +71,10 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 for i in range(epochs):
         train = LeNet()
+        loss = loss_fn(train, y)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
         
 
 
