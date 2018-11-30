@@ -1,7 +1,7 @@
-###################################
-# LeNet implementation in PyTorch #
-# Adapted by Breno Zanchetta      #
-###################################
+######################################
+# Personal implementation in PyTorch #
+# Adapted by Breno Zanchetta         #
+######################################
 from __future__ import print_function
 
 import torch
@@ -13,8 +13,6 @@ from  torch.autograd import Variable
 
 import torchvision
 import torchvision.transforms as transforms
-
-#########
 from torchvision import datasets,transforms, utils
 from torch.utils.data import Dataset, DataLoader
 from skimage import io, transform
@@ -34,8 +32,6 @@ import matplotlib.pyplot as plt
 #import torch.optim
 #import torch.multiprocessing as mp
 #import torch.utils.data.distributed
-#import torchvision.transforms as transforms
-#import torchvision.datasets as datasets
 #import torchvision.models as models
 # Ignore warnings
 import warnings
@@ -82,14 +78,15 @@ validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
 
 #Definition of the Model
 
-class LeNet(nn.Module):
+class BrenoNet(nn.Module):
     def __init__(self):
-        super(LeNet, self).__init__()
+        super(BrenoNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16*5*5, 120)
         self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 3)
+        self.fc3 = nn.Linear(84, 20)
+	self.dropout = nn.Dropout() 
 
     def forward(self, x):
         out = F.relu(self.conv1(x))
@@ -98,7 +95,9 @@ class LeNet(nn.Module):
         out = F.max_pool2d(out, 2)
         out = out.view(out.size(0), -1)
         out = F.relu(self.fc1(out))
+	out = self.dropout(out)
         out = F.relu(self.fc2(out))
+	out = self.dropout(out)
         out = self.fc3(out)
         return out
 
@@ -107,25 +106,23 @@ class LeNet(nn.Module):
 loss_fc = torch.nn.CrossEntropyLoss()
 #criterion = nn.CrossEntropyLoss().cuda(args.gpu)
 
-lenet = LeNet().to(device)
-optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4)
-lenet.train()
+brenonet = BrenoNet().to(device)
+optimizer = torch.optim.Adam(brenonet.parameters(), lr=1e-4)
+brenonet.train()
 
 for i in range(epochs):
         since = time.time()
         for j, (input, targets) in enumerate(trainset_loader):
                 input, targets = input.to(device), targets.to(device)
                 input = torch.autograd.Variable(input)
-		        train = lenet(input)
-		        print("Passo de Treinamento ",(i+1)*(j),"concluido.")
+		train = lenet(input)
+		print("Passo de Treinamento ",(i+1)*(j),"concluido.")
                 targets = torch.autograd.Variable(targets)
-		        loss = loss_fc(train, targets)
-		        print("Loss:", loss)
+		loss = loss_fc(train, targets)
+		print("Loss:", loss)
                 optimizer.zero_grad()
                 loss.backward()
-                optimizer.step()
-		        print("Loss:", loss)
-                
+                optimizer.step()    
         print("So far so good")
 
 time_elapsed = time.time() - since
