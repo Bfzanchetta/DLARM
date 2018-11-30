@@ -27,7 +27,8 @@ data_transform = transforms.Compose([
 #Loading Dataset 
 miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
                                            transform=data_transform)
-miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
+
+miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
                                            transform=data_transform)
                                            
 trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
