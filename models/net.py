@@ -2,6 +2,7 @@ from torchvision import datasets,transforms, utils
 from torch.utils.data import Dataset, DataLoader
 import os
 import torch
+import time
 from skimage import io, transform
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,10 +18,8 @@ device = torch.device("cpu")
 #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 #Parameters
-num_classes = 3
-learning_rate = 1e-4
+#learning_rate = 1e-4
 epochs = 10
-since = 0
 
 data_transform_train = transforms.Compose([
         transforms.RandomSizedCrop(224),
@@ -57,7 +56,7 @@ print("It Works")
 
 #Definition of the Model
 class LeNet(nn.Module):
-    def __init__(self):
+    def __init__(self, num_classes=3):
         super(LeNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.conv2 = nn.Conv2d(6, 16, 5)
@@ -79,7 +78,7 @@ class LeNet(nn.Module):
 #Loss Function Definition
 loss_fn = torch.nn.MSELoss(reduction='sum')
 
-#optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
+#optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, momentum=0.9)
 
 for i in range(epochs):
         since = time.time()
