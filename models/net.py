@@ -17,6 +17,7 @@ device = torch.device("cpu")
 
 #Parameters
 num_classes = 3
+learning_rate = 1e-4
 
 data_transform = transforms.Compose([
         transforms.RandomSizedCrop(224),
@@ -66,8 +67,8 @@ class LeNet(nn.Module, num_classes):
 
 #Loss Function Definition
 loss_fn = torch.nn.MSELoss(reduction='sum')
-learning_rate = 1e-4
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
 
 for i in range(epochs):
         train = LeNet()
