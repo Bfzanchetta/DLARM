@@ -98,9 +98,10 @@ optimizer = torch.optim.Adam(lenet.parameters(), lr=1e-4)
 
 for i in range(epochs):
         since = time.time()
-        for i, (input, device) in enumerate(trainset_loader):
+        for i, (input, targets) in enumerate(trainset_loader):
+                input, targets = input.to(device), device.to(device)
                 train = lenet.forward(input)
-                loss = loss_fn(train, device)
+                loss = loss_fn(train, targets)
 
                 optimizer.zero_grad()
                 loss.backward()
