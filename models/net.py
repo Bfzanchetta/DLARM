@@ -14,11 +14,13 @@ warnings.filterwarnings("ignore")
 plt.ion()   # interactive mode
 
 device = torch.device("cpu")
+#device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 #Parameters
 num_classes = 3
 learning_rate = 1e-4
 epochs = 10
+since = 0
 
 data_transform_train = transforms.Compose([
         transforms.RandomSizedCrop(224),
@@ -54,7 +56,7 @@ validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
 print("It Works")
 
 #Definition of the Model
-class LeNet(nn.Module, num_classes):
+class LeNet(nn.Module):
     def __init__(self):
         super(LeNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
@@ -80,9 +82,13 @@ loss_fn = torch.nn.MSELoss(reduction='sum')
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, momentum=0.9)
 
 for i in range(epochs):
+        since = time.time()
         #train = LeNet()
         #loss = loss_fn(train, y)
         #optimizer.zero_grad()
         #loss.backward()
         #optimizer.step()
         print("So far so good")
+
+time_elapsed = time.time() - since
+print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
