@@ -14,6 +14,8 @@ warnings.filterwarnings("ignore")
 
 plt.ion()   # interactive mode
 
+device = torch.device("cpu")
+
 data_transform = transforms.Compose([
         transforms.RandomSizedCrop(224),
         transforms.RandomHorizontalFlip(),
