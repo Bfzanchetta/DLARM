@@ -4,8 +4,6 @@ import numpy as np
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
-
 from sklearn.utils import shuffle
 from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.contrib.layers import flatten
@@ -109,7 +107,7 @@ one_hot_y = tf.one_hot(y, 10)
 rate = 0.001
 
 logits = LeNet(x)
-cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits, one_hot_y)
+cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot_y)
 loss_operation = tf.reduce_mean(cross_entropy)
 optimizer = tf.train.AdamOptimizer(learning_rate = rate)
 training_operation = optimizer.minimize(loss_operation)
