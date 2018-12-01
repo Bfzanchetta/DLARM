@@ -4,6 +4,8 @@ amountOfFiles=0;
 R=$((RANDOM%1000+1));
 acc=0;
 N=12;
+outputpath="/home/nvidia/Desktop/folder";
+
 cd train/;
 for i in `ls`;
         do cd $i;
@@ -35,3 +37,13 @@ for((i=0;i<N && ${#a[@]};++i)); do
     
     echo ${a[j]}
     #resto da logica de verificacao aqui
+    
+
+for(i=0;i<1000; i++); do
+        #pegar a folder com o indice
+        mkdir(outputpath);
+
+for(i=0;i<1000; i++); do
+        #pegar a folder com o indice
+        enquanto(teste(escolher aleatorio)==1) fazer
+                
