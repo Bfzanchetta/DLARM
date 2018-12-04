@@ -39,11 +39,14 @@ for((i=0;i<N && ${#a[@]};++i)); do
     #resto da logica de verificacao aqui
     
 
-for(i=0;i<1000; i++); do
+for i in `ls`; do
         #pegar a folder com o indice
-        mkdir(outputpath);
+        mkdir(outputpath/$i);
 
-for(i=0;i<1000; i++); do
+for i in `ls`; do
         #pegar a folder com o indice
-        enquanto(teste(escolher aleatorio)==1) fazer
+        for i in {1..10}; do
+                enquanto(teste(escolher aleatorio)==1) fazer
+                done;
+        done;
                 
