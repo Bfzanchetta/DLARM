@@ -38,15 +38,25 @@ for((i=0;i<N && ${#a[@]};++i)); do
     echo ${a[j]}
     #resto da logica de verificacao aqui
     
-
 for i in `ls`; do
         #pegar a folder com o indice
         mkdir(outputpath/$i);
+        done;
+
+localMedian=0;
+localStddev=0;
 
 for i in `ls`; do
         #pegar a folder com o indice
-        for i in {1..10}; do
-                enquanto(teste(escolher aleatorio)==1) fazer
+        cd $i;
+        for j in {1..10}; do
+                while()
+                        #verifica se está abaixo da média
+                        #se sim, adiciona
+                        #se não, retira outro
+                        #adicionar ao contador total
                 done;
+        cd ..;
         done;
+
                 
