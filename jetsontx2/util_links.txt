@@ -1,2 +1,4 @@
 #For problems with locale
 https://askubuntu.com/questions/359753/gtk-warning-locale-not-supported-by-c-library-when-starting-apps-from-th
+https://www.edivaldobrito.com.br/estressando-cpu-memoria-ram-e-disco-rigido-no-linux-com-stress-ng/
+stress-ng --cpu 1 --vm 1 --hdd 1 --fork 1 --switch 1 --timeout 10 --metrics
