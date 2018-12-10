@@ -49,8 +49,25 @@ localStddev=0;
 for i in `ls`; do
         #pegar a folder com o indice
         cd $i;
-        for j in {1..10}; do
-                while()
+        a=( * )
+        randf=()
+        for((i=0;i<N && ${#a[@]};++i)); do
+                ((j=RANDOM%${#a[@]}))
+                if [ ${a[j]} >>  ]
+                then
+                        Statement(s) to be executed if expression 1 is true
+                elif [ expression 2 ]
+                then
+                
+                elif [ expression 2 ]
+                then
+                
+                elif [ expression 2 ]
+                then
+                
+                else
+   
+                fi
                         #verifica se está abaixo da média
                         #se sim, adiciona
                         #se não, retira outro
