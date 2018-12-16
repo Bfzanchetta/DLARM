@@ -1,4 +1,6 @@
 #!/bin/bash
+#Number of files | Mean | Stddev
+# 1281167 | 114667 | 338.58972223031224194536
 mean=114667,24;
 media=0
 amountOfFiles=0;
