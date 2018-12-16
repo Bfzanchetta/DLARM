@@ -2,6 +2,7 @@
 mean=114667,24;
 amountOfFiles=0;
 R=$((RANDOM%1000+1));
+stddev=0;
 acc=0;
 N=12;
 outputpath="/home/nvidia/Desktop/folder";
@@ -47,31 +48,26 @@ localMedian=0;
 localStddev=0;
 
 for i in `ls`; do
-        #pegar a folder com o indice
         cd $i;
         a=( * )
         randf=()
         for((i=0;i<N && ${#a[@]};++i)); do
                 ((j=RANDOM%${#a[@]}))
-                if [ ${a[j]} >>  ]
+                if [ ${a[j]} -get $(mean-(2*stddev)) -a ${a[j]} -lt $(mean-stddev) ]
                 then
-                        Statement(s) to be executed if expression 1 is true
-                elif [ expression 2 ]
-                then
-                
-                elif [ expression 2 ]
+                        
+                elif [  ${a[j]} -get $(mean-stddev) -a ${a[j]} -lt $(mean)  ]
                 then
                 
-                elif [ expression 2 ]
+                elif [ ${a[j]} -get $(mean) -a ${a[j]} -lt $(mean+stddev) ]
+                then
+                
+                elif [ ${a[j]} -get $(mean+stddev) -a ${a[j]} -lt $(mean+(2*stddev)) ]
                 then
                 
                 else
    
                 fi
-                        #verifica se está abaixo da média
-                        #se sim, adiciona
-                        #se não, retira outro
-                        #adicionar ao contador total
                 done;
         cd ..;
         done;
