@@ -46,6 +46,7 @@ for i in `ls`; do
 
 localMedian=0;
 localStddev=0;
+balance=0;
 
 for i in `ls`; do
         cd $i;
@@ -55,21 +56,30 @@ for i in `ls`; do
                 ((j=RANDOM%${#a[@]}))
                 if [ ${a[j]} -get $(mean-(2*stddev)) -a ${a[j]} -lt $(mean-stddev) ]
                 then
-                        
+                        $balance=$(balance+(mean-a[j]));
                 elif [  ${a[j]} -get $(mean-stddev) -a ${a[j]} -lt $(mean)  ]
                 then
-                
+                        $balance=$(balance+(mean-a[j]));
                 elif [ ${a[j]} -get $(mean) -a ${a[j]} -lt $(mean+stddev) ]
                 then
-                
+                        if [ $balance -get  ${a[j]} ]
+                        then
+                                $balance=$(balance-(mean-a[j]));
+                        else
+                                #draw again
+                        fi
+                        
                 elif [ ${a[j]} -get $(mean+stddev) -a ${a[j]} -lt $(mean+(2*stddev)) ]
                 then
-                
+                        if [ $balance -get  ${a[j]} ]
+                        then
+                                $balance=$(balance-(mean-a[j]));
+                        else
+                                #draw again
+                        fi
                 else
    
                 fi
                 done;
         cd ..;
         done;
-
-                
