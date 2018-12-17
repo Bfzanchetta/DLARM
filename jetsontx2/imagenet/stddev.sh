@@ -1,8 +1,8 @@
 #!/bin/bash
 #Number of files | Mean | Stddev
 # 1281167 | 114667 | 338.58972223031224194536
-mean=114667,24;
-media=0
+mean=114667.24;
+media=0;
 amountOfFiles=0;
 stddev=0;
 acc=0;
@@ -18,7 +18,6 @@ for i in `ls`;
 		aux=`echo "$std - $mean" | bc`;
 		aux=`echo "$aux * $aux" | bc`;
 		acc=`echo "$acc + $aux" | bc`;
-                acc=$(((acc)+((aux)^2)));
                 amountOfFiles=$((amountOfFiles+1));
 		media=$((media+(std)));
                 done;
