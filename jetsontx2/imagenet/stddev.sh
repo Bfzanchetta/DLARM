@@ -9,7 +9,8 @@ acc=0;
 #std=0;
 outputpath="/home/breno/Desktop/train";
 
-cd train/;
+cd $outputpath;
+
 for i in `ls`;
         do cd $i;
         for j in `ls`;
