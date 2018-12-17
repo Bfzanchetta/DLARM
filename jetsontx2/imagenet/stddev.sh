@@ -4,10 +4,9 @@
 mean=114667,24;
 media=0
 amountOfFiles=0;
-R=$((RANDOM%1000+1));
 stddev=0;
 acc=0;
-N=12;
+#std=0;
 outputpath="/home/breno/Desktop/train";
 
 cd train/;
@@ -15,7 +14,9 @@ for i in `ls`;
         do cd $i;
         for j in `ls`;
                 do std=$(stat -c '%s' "$j");
-                aux=$((std-(mean)));
+		aux=`echo "$std - $mean" | bc`;
+		aux=`echo "$aux * $aux" | bc`;
+		acc=`echo "$acc + $aux" | bc`;
                 acc=$(((acc)+((aux)^2)));
                 amountOfFiles=$((amountOfFiles+1));
 		media=$((media+(std)));
@@ -23,11 +24,15 @@ for i in `ls`;
         cd ..; 
         done;
 echo 'end for'
-acc=$((acc / (amountOfFiles)));
+
+#acc=$((acc / (amountOfFiles)));
+acc=`echo "$acc / $amountOfFiles" | bc`;
+
 stddev=$(echo "sqrt ( ($acc) )" | bc -l) ; 
-echo 'stddev'
-echo $stddev
-echo 'amount of files'
+
+echo 'Total de Arquivos'
 echo $amountOfFiles
-echo 'media final'
-echo $((media/(amountOfFiles)))
+echo 'Media do Dataset'
+echo $acc
+echo 'Stddev'
+echo $stddev
