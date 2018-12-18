@@ -131,6 +131,7 @@ class VGG(nn.Module):
 def test():
     net = VGG('VGG11')
     x = torch.randn(2,3,32,32)
+	
     y = net(x)
     print(y.size())
 
@@ -162,6 +163,3 @@ for i in range(epochs):
 
 time_elapsed = time.time() - since
 print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-
-if __name__ == '__main__':
-        main()
