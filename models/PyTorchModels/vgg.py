@@ -1,23 +1,17 @@
 from __future__ import print_function
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 from  torch.autograd import Variable
-
 import torchvision
 import torchvision.transforms as transforms
-
 import os
 import argparse
-
-#########
 from torchvision import datasets,transforms, utils
 from torch.utils.data import Dataset, DataLoader
 from skimage import io, transform
-
 import os
 import torch
 import time
@@ -58,28 +52,28 @@ data_transform_train = transforms.Compose([
                              std=[0.229, 0.224, 0.225])
     ])
 
-data_transform_val = transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                             std=[0.229, 0.224, 0.225])
-    ])
+#data_transform_val = transforms.Compose([
+#        transforms.Resize(256),
+#        transforms.CenterCrop(224),
+#        transforms.ToTensor(),
+#        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+#                             std=[0.229, 0.224, 0.225])
+#    ])
 
 #Loading Dataset 
 miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
                                            transform=data_transform_train)
 
-miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
-                                           transform=data_transform_val)
+#miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
+#                                           transform=data_transform_val)
                                            
 trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
                                              batch_size=4, shuffle=True,
                                              num_workers=4)
 
-validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
-                                             batch_size=4, shuffle=True,
-                                             num_workers=4)
+#validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
+#                                             batch_size=4, shuffle=True,
+#                                             num_workers=4)
 
 #Definition of the Model
 
@@ -128,12 +122,12 @@ class VGG(nn.Module):
         return nn.Sequential(*layers)
 
 
-def test():
-    net = VGG('VGG11')
-    x = torch.randn(2,3,32,32)
-	
-    y = net(x)
-    print(y.size())
+#def test():
+#    net = VGG('VGG11')
+#    x = torch.randn(2,3,32,32)
+#	
+#    y = net(x)
+#    print(y.size())
 
 #Loss Function Definition
 #loss_fn = torch.nn.MSELoss(reduction='sum')
