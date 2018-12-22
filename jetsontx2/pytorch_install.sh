@@ -77,6 +77,7 @@ sudo python setup.py install
 sudo pip install pandas # ~20-30 min
 sudo pip install Cython
 sudo pip install scikit-image
+sudo apt install python-sklearn  
 
 sudo pip --no-cache-dir install torchvision
 
