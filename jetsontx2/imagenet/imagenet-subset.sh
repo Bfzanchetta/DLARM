@@ -7,31 +7,20 @@ outputpath="/home/nvidia/dataset/train";
 soma=0;
 mean=114667.24;
 stddev=338.58972223031224194536;
-limit3=147924.00
 limit1=60400.75
+limit3=147924.00
 
 zona1=0;
 zona2=0;
 zona3=0;
 zona4=0;
-zona5=0;
-zona6=0;
-zona7=0;
 
 balance=0.0;
-    
 #for i in `ls`; do
 #        mkdir(outputpath/$i);
 #        done;
 #localMedian=0;
 #localStddev=0;
-
-#echo $limit4
-#echo $limit3
-#echo $limit2
-#echo $limit1
-#echo $mean
-#echo $fSize
 
 cd $outputpath;
 
@@ -46,22 +35,14 @@ for i in `ls`; do
 		if [ `echo $fSize'<'$limit1 | bc -l` == 1 ]; then
 			echo 'arquivo pequeno'
 			zona1=$((zona1+1));
-		elif [ `echo $fSize'>='$limit1 | bc -l` == 1 -a `echo $fSize'<'$limit2 | bc -l` == 1 ]; then
+		elif [ `echo $fSize'>='$limit1 | bc -l` == 1 -a `echo $fSize'<'$mean | bc -l` == 1 ]; then
             		soma=`echo "$mean - $fSize" | bc`;
 			balance=`echo "$balance + $soma" | bc`;
 			zona2=$((zona2+1));
 			echo 'arquivo 1'
-        	elif [ `echo $fSize'>='$limit2 | bc -l` == 1 -a `echo $fSize'<'$mean | bc -l` == 1 ]; then
-            		soma=`echo "$mean - $fSize" | bc`;
-                        balance=`echo "$balance + $soma" | bc`;
-			zona3=$((zona3+1));
-			echo 'arquivo 2'
-        	elif [ `echo $fSize'=='$mean | bc -l` == 1 ]; then
-			echo "Sera que isso acontece?"
-			zona4=$((zona4+1));
         	elif [ `echo $fSize'>'$mean | bc -l` == 1 -a `echo $fSize'<='$limit3 | bc -l` == 1 ]; then
 			echo 'arquivo 3'
-			zona5=$((zona5+1));
+			zona3=$((zona3+1));
 			if [ `echo $balance'>'$fSize | bc -l` == 1 ]; then
 				soma=`echo "$fSize - $mean" | bc`;
                 		balance=`echo "$balance + $soma" | bc`;
@@ -69,19 +50,9 @@ for i in `ls`; do
                 		#draw again
 				echo 'oi'
             		fi
-        	elif [ `echo $fSize'>'$limit3 | bc -l` == 1 -a `echo $fSize'<='$limit4 | bc -l` == 1 ]; then
-			echo 'arquivo 4'
-			zona6=$((zona6+1));
-			if [ `echo $balance'>'$fSize | bc -l` == 1 ]; then
-                		soma=`echo "$fSize - $mean" | bc`;
-                                balance=`echo "$balance + $soma" | bc`;
-            		else
-                		#draw again
-				echo 'draw again'
-            		fi
-		elif [ `echo $fSize'>'$limit4 | bc -l` == 1 ]; then
+		elif [ `echo $fSize'>'$limi3 | bc -l` == 1 ]; then
 			echo 'arquivo grande'
-			zona7=$((zona7+1));
+			zona4=$((zona4+1));
         	else
 	    		echo '**************'
    	    		echo '     Erro     '
