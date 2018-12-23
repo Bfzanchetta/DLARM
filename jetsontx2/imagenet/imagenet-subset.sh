@@ -54,7 +54,7 @@ for i in `ls`; do
                 		#draw again
 				echo 'oi'
             		fi
-		elif [ `echo $fSize'>'$limi3 | bc -l` == 1 ]; then
+		elif [ `echo $fSize'>'$limit3 | bc -l` == 1 ]; then
 			echo 'arquivo grande'
 			zona4=$((zona4+1));
 			totaldataset=`echo $totaldataset + $fSize | bc -l`;
@@ -75,3 +75,5 @@ echo 'zona3'
 echo $zona3
 echo 'zona4'
 echo $zona4
+echo 'Total'
+echo $totaldataset
