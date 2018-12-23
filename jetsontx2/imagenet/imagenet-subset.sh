@@ -3,7 +3,8 @@
 # 1281167 | 114667 | 338.58972223031224194536
 R=$((RANDOM%1000+1));
 N=12;
-outputpath="/home/nvidia/dataset/train";
+inputpath="/home/nvidia/dataset/train";
+outputpath="/home/nvidia/newset"
 soma=0;
 mean=114667.24;
 stddev=338.58972223031224194536;
@@ -23,10 +24,11 @@ balance=0.0;
 #localMedian=0;
 #localStddev=0;
 
-cd $outputpath;
+cd $inputpath;
 
-for i in `ls`; do
-	cd $i;
+for k in `ls`; do
+	cd $k;
+	mkdir $outputpath/$k;
 	a=( * )
 	randf=()
 	fSize=0;
@@ -37,16 +39,19 @@ for i in `ls`; do
 			echo 'arquivo pequeno'
 			zona1=$((zona1+1));
 			totaldataset=`echo $totaldataset + $fSize | bc -l`;
+			cp -ax ${a[j]} $outputpath/$k/${a[j]};
 		elif [ `echo $fSize'>='$limit1 | bc -l` == 1 -a `echo $fSize'<'$mean | bc -l` == 1 ]; then
             		soma=`echo "$mean - $fSize" | bc`;
 			balance=`echo "$balance + $soma" | bc`;
 			zona2=$((zona2+1));
 			echo 'arquivo 1'
 			totaldataset=`echo $totaldataset + $fSize | bc -l`;
+			cp -ax ${a[j]} $outputpath/$k/${a[j]};
         	elif [ `echo $fSize'>'$mean | bc -l` == 1 -a `echo $fSize'<='$limit3 | bc -l` == 1 ]; then
 			echo 'arquivo 3'
 			zona3=$((zona3+1));
 			totaldataset=`echo $totaldataset + $fSize | bc -l`;
+			cp -ax ${a[j]} $outputpath/$k/${a[j]};
 			if [ `echo $balance'>'$fSize | bc -l` == 1 ]; then
 				soma=`echo "$fSize - $mean" | bc`;
                 		balance=`echo "$balance + $soma" | bc`;
@@ -58,6 +63,7 @@ for i in `ls`; do
 			echo 'arquivo grande'
 			zona4=$((zona4+1));
 			totaldataset=`echo $totaldataset + $fSize | bc -l`;
+			cp -ax ${a[j]} $outputpath/$k/${a[j]};
         	else
 	    		echo '**************'
    	    		echo '     Erro     '
