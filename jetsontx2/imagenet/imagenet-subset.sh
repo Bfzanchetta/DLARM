@@ -70,10 +70,3 @@ echo 'zona3'
 echo $zona3
 echo 'zona4'
 echo $zona4
-echo 'zona5'
-echo $zona5
-echo 'zona6'
-echo $zona6
-echo 'zona7'
-echo $zona7
-echo 'Fim'
