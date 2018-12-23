@@ -7,10 +7,8 @@ outputpath="/home/nvidia/dataset/train";
 soma=0;
 mean=114667.24;
 stddev=338.58972223031224194536;
-limit4=115344.419444461;
-limit3=115005.82972223;
-limit2=114328.65027777;
-limit1=113990.060555539;
+limit3=147924.00
+limit1=60400.75
 
 zona1=0;
 zona2=0;
