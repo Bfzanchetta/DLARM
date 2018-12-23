@@ -7,8 +7,9 @@ outputpath="/home/nvidia/dataset/train";
 soma=0;
 mean=114667.24;
 stddev=338.58972223031224194536;
-limit1=60400.75
-limit3=147924.00
+limit1=60400.75;
+limit3=147924.00;
+totaldataset=0.0;
 
 zona1=0;
 zona2=0;
@@ -35,14 +36,17 @@ for i in `ls`; do
 		if [ `echo $fSize'<'$limit1 | bc -l` == 1 ]; then
 			echo 'arquivo pequeno'
 			zona1=$((zona1+1));
+			totaldataset=`echo $totaldataset + $fSize | bc -l`;
 		elif [ `echo $fSize'>='$limit1 | bc -l` == 1 -a `echo $fSize'<'$mean | bc -l` == 1 ]; then
             		soma=`echo "$mean - $fSize" | bc`;
 			balance=`echo "$balance + $soma" | bc`;
 			zona2=$((zona2+1));
 			echo 'arquivo 1'
+			totaldataset=`echo $totaldataset + $fSize | bc -l`;
         	elif [ `echo $fSize'>'$mean | bc -l` == 1 -a `echo $fSize'<='$limit3 | bc -l` == 1 ]; then
 			echo 'arquivo 3'
 			zona3=$((zona3+1));
+			totaldataset=`echo $totaldataset + $fSize | bc -l`;
 			if [ `echo $balance'>'$fSize | bc -l` == 1 ]; then
 				soma=`echo "$fSize - $mean" | bc`;
                 		balance=`echo "$balance + $soma" | bc`;
@@ -53,6 +57,7 @@ for i in `ls`; do
 		elif [ `echo $fSize'>'$limi3 | bc -l` == 1 ]; then
 			echo 'arquivo grande'
 			zona4=$((zona4+1));
+			totaldataset=`echo $totaldataset + $fSize | bc -l`;
         	else
 	    		echo '**************'
    	    		echo '     Erro     '
