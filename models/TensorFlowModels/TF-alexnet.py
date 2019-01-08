@@ -28,25 +28,14 @@ import imagenet
 
 imagenet.
 
+#Definicao do modelo
+#modelo to-do
+#fim modelo
 
+since = time.time()
 
-
-
-
-def _parse_function(filename, label):
-  image_string = tf.read_file(filename)
-  image_decoded = tf.image.decode_jpeg(image_string)
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
-  return image_resized, label
-
-# A vector of filenames.
-filenames = tf.constant(["/var/data/image1.jpg", "/var/data/image2.jpg", ...])
-
-# `labels[i]` is the label for the image in `filenames[i].
-labels = tf.constant([0, 37, ...])
-
-dataset = tf.data.Dataset.from_tensor_slices((filenames, labels))
-dataset = dataset.map(_parse_function)
-
-#to be continued
-
+for i in range(epochs):
+        epoch_time = time.time()
+        print("Epoch ", i)
+        for j, (input, targets) in enumerate(sess.run([image_batch_tensor, target_batch_tensor])):
+                print("Batch numero ", j)
