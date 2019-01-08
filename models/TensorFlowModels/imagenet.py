@@ -7,8 +7,8 @@ import tensorflow as tf
 import random
 import os
 
-train_dir         = "data/imagenet/train/"
-validation_dir    = "data/imagenet/validation/"
+train_dir         = "/home/nvidia/Desktop/Desenvolvimento/newset"
+#validation_dir    = "data/imagenet/validation/"
 labels_file       = "data/imagenet/imagenet_lsvrc_2015_synsets.txt"
 metadata_file     = "data/imagenet/imagenet_metadata.txt"
 bounding_box_file = "data/imagenet/imagenet_2012_bounding_boxes.csv"
