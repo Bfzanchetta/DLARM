@@ -19,6 +19,7 @@ warnings.filterwarnings("ignore")
 epochs = 10
 channels = 3
 
+#https://github.com/ischlag/tensorflow-input-pipelines/blob/master/datasets/imagenet.py
 #https://www.tensorflow.org/guide/datasets
 def _parse_function(filename, label):
   image_string = tf.read_file(filename)
