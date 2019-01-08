@@ -68,7 +68,7 @@ miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
 #                                           transform=data_transform_val)
                                            
 trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
-                                             batch_size=5, shuffle=True,
+                                             batch_size=4, shuffle=True,
                                              num_workers=4)
 
 #validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
