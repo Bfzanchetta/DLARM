@@ -5,3 +5,5 @@ stress-ng --cpu 1 --vm 1 --hdd 1 --fork 1 --switch 1 --timeout 10 --metrics
 
 #For utils-tx monitor:
 pip install openpyxl
+#add at beggining of python script
+# -*- coding: utf-8 -*-
