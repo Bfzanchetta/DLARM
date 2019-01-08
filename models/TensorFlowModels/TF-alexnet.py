@@ -17,6 +17,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 epochs = 10
+channels = 3
 
 #https://www.tensorflow.org/guide/datasets
 def _parse_function(filename, label):
