@@ -22,8 +22,17 @@ num_threads=4
 num_classes=1000
 
 
-#https://github.com/ischlag/tensorflow-input-pipelines/blob/master/datasets/imagenet.py
-#https://www.tensorflow.org/guide/datasets
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+
+import imagenet
+
+imagenet.
+
+
+
+
+
+
 def _parse_function(filename, label):
   image_string = tf.read_file(filename)
   image_decoded = tf.image.decode_jpeg(image_string)
@@ -40,4 +49,4 @@ dataset = tf.data.Dataset.from_tensor_slices((filenames, labels))
 dataset = dataset.map(_parse_function)
 
 #to be continued
-sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+
