@@ -14,6 +14,7 @@ import random
 import shutil
 import sys
 import warnings
+from imgnet import imagenet_data
 warnings.filterwarnings("ignore")
 
 epochs=10
@@ -21,12 +22,10 @@ channels=3
 num_threads=4
 num_classes=1000
 
-
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 
-import imagenet
-
-imagenet.
+d = imagenet_data(batch_size=4, sess=sess)
+image_batch_tensor, target_batch_tensor = d.build_train_data_tensor()
 
 #Definicao do modelo
 #modelo to-do
@@ -39,3 +38,4 @@ for i in range(epochs):
         print("Epoch ", i)
         for j, (input, targets) in enumerate(sess.run([image_batch_tensor, target_batch_tensor])):
                 print("Batch numero ", j)
+print("Fim")
