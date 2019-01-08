@@ -31,6 +31,9 @@ image_batch_tensor, target_batch_tensor = d.build_train_data_tensor()
 #modelo to-do
 #fim modelo
 
+loss_fc = tf.nn.softmax_cross_entropy_with_logits(logits, tf.cast(target_batch_tensor, tf.float32), name="cross-entropy")
+optimizer = tf.train.MomentumOptimizer(learning_rate=learning_rate, momentum=0.9)
+
 since = time.time()
 
 for i in range(epochs):
