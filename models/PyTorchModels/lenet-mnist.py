@@ -50,7 +50,7 @@ transform = transforms.Compose(
 
 trainset = torchvision.datasets.MNIST(root='../data', train=True, download=True, transform=transform)
 
-trainset_loader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+trainset_loader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=4)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 #data_transform_val = transforms.Compose([
