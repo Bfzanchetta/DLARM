@@ -16,8 +16,11 @@ import sys
 import warnings
 warnings.filterwarnings("ignore")
 
-epochs = 10
-channels = 3
+epochs=10
+channels=3
+num_threads=4
+num_classes=1000
+
 
 #https://github.com/ischlag/tensorflow-input-pipelines/blob/master/datasets/imagenet.py
 #https://www.tensorflow.org/guide/datasets
