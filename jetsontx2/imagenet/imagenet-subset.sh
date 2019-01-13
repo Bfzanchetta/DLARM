@@ -1,5 +1,6 @@
 #!/bin/bash
 #Number of files | Mean | Stddev
+#Total length: 146907888532
 # 1281167 | 114667 | 338.58972223031224194536
 R=$((RANDOM%1000+1));
 N=12;
