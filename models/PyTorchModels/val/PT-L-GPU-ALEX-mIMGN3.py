@@ -61,7 +61,7 @@ data_transform_train = transforms.Compose([
 #    ])
 
 #Loading Dataset 
-miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/Desktop/Desenvolvimento/newset',
+miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/miniset/train',
                                            transform=data_transform_train)
 
 #miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
@@ -155,7 +155,7 @@ print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_ela
 #                             std=[0.229, 0.224, 0.225])
 #    ])
 
-#miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/Desktop/Desenvolvimento/newset',
+#miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val',
 #                                           transform=data_transform_val)
                         
 #validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
