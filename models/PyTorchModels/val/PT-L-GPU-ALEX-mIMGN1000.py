@@ -68,7 +68,7 @@ miniImageNet_trainset = datasets.ImageFolder(root='/home/nvidia/Desktop/Desenvol
 #                                           transform=data_transform_val)
                                            
 trainset_loader = torch.utils.data.DataLoader(miniImageNet_trainset,
-                                             batch_size=5, shuffle=True,
+                                             batch_size=4, shuffle=True,
                                              num_workers=4)
 
 #validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
@@ -145,3 +145,19 @@ for i in range(epochs):
 
 time_elapsed = time.time() - since
 print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
+
+#### Validation ####
+#data_transform_val = transforms.Compose([
+#        transforms.Resize(256),
+#        transforms.CenterCrop(224),
+#        transforms.ToTensor(),
+#        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+#                             std=[0.229, 0.224, 0.225])
+#    ])
+
+#miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/Desktop/Desenvolvimento/newset',
+#                                           transform=data_transform_val)
+                        
+#validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
+#                                             batch_size=4, shuffle=True,
+#                                             num_workers=4)
