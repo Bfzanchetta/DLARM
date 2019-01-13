@@ -161,3 +161,13 @@ miniImageNet_validationset = datasets.ImageFolder(root='/home/nvidia/miniset/val
 validationset_loader = torch.utils.data.DataLoader(miniImageNet_validationset,
                                              batch_size=4, shuffle=True,
                                              num_workers=4)
+
+alexnet.eval()
+
+for j, (input, targets) in enumerate(validationset_loader):
+                input, targets = input.to(device), targets.to(device)
+                input = torch.autograd.Variable(input)
+		validate = alexnet(input)
+                targets = torch.autograd.Variable(targets)
+		loss = loss_fc(validate, targets)
+		print("Validation Loss:", loss)
