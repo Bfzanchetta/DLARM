@@ -119,12 +119,13 @@ class AlexNet(nn.Module):
 
 #Loss Function Definition
 #loss_fn = torch.nn.MSELoss(reduction='sum')
-loss_fc = torch.nn.CrossEntropyLoss()
+loss_fc = torch.nn.CrossEntropyLoss().to(device)
 #criterion = nn.CrossEntropyLoss().cuda(args.gpu)
 
 alexnet = AlexNet().to(device)
 optimizer = torch.optim.Adam(alexnet.parameters(), lr=1e-4)
 alexnet.train()
+cudnn.benchmark=True
 
 for i in range(epochs):
         since = time.time()
