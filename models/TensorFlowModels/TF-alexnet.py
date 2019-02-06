@@ -1,12 +1,8 @@
 import os
 import urllib.request
-import argparse
 import sys
-import alexnet
-import cv2
 import tensorflow as tf
 import numpy as np
-import caffe_classes
 import glob
 
 dropoutPro = 1
@@ -107,6 +103,7 @@ class alexNet(object):
                             sess.run(tf.get_variable('b', trainable = False).assign(p))
                         else:
                             sess.run(tf.get_variable('w', trainable = False).assign(p))
+
 
 def listdir_nohidden(path):
     return glob.glob(os.path.join(path, '*')) # so there is no problem with hidden files
