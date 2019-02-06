@@ -8,14 +8,12 @@ import glob
 dropoutPro = 1
 classNum = 1000
 skip = []
-#get testImage
 testPath = "testModel"
 testImg = []
 
 def maxPoolLayer(x, kHeight, kWidth, strideX, strideY, name, padding = "SAME"):
     """max-pooling"""
-    return tf.nn.max_pool(x, ksize = [1, kHeight, kWidth, 1],
-                          strides = [1, strideX, strideY, 1], padding = padding, name = name)
+    return tf.nn.max_pool(x, ksize = [1, kHeight, kWidth, 1], strides = [1, strideX, strideY, 1], padding = padding, name = name)
 
 def dropout(x, keepPro, name = None):
     """dropout"""
@@ -23,8 +21,7 @@ def dropout(x, keepPro, name = None):
 
 def LRN(x, R, alpha, beta, name = None, bias = 1.0):
     """LRN"""
-    return tf.nn.local_response_normalization(x, depth_radius = R, alpha = alpha,
-                                              beta = beta, bias = bias, name = name)
+    return tf.nn.local_response_normalization(x, depth_radius = R, alpha = alpha, beta = beta, bias = bias, name = name)
 
 def fcLayer(x, inputD, outputD, reluFlag, name):
     """fully-connect"""
@@ -37,8 +34,7 @@ def fcLayer(x, inputD, outputD, reluFlag, name):
         else:
             return out
 
-def convLayer(x, kHeight, kWidth, strideX, strideY,
-              featureNum, name, padding = "SAME", groups = 1):
+def convLayer(x, kHeight, kWidth, strideX, strideY, featureNum, name, padding = "SAME", groups = 1):
     """convolution"""
     channel = int(x.get_shape()[-1])
     conv = lambda a, b: tf.nn.conv2d(a, b, strides = [1, strideY, strideX, 1], padding = padding)
@@ -56,17 +52,14 @@ def convLayer(x, kHeight, kWidth, strideX, strideY,
         return tf.nn.relu(tf.reshape(out, mergeFeatureMap.get_shape().as_list()), name = scope.name)
 
 class alexNet(object):
-    """alexNet model"""
-    def __init__(self, x, keepPro, classNum, skip, modelPath = "bvlc_alexnet.npy"):
+    def __init__(self, x, keepPro, classNum, skip):
         self.X = x
         self.KEEPPRO = keepPro
         self.CLASSNUM = classNum
         self.SKIP = skip
-        self.MODELPATH = modelPath
         self.buildCNN()
 
     def buildCNN(self):
-        """build model"""
         conv1 = convLayer(self.X, 11, 11, 4, 4, 96, "conv1", "VALID")
         lrn1 = LRN(conv1, 2, 2e-05, 0.75, "norm1")
         pool1 = maxPoolLayer(lrn1, 3, 3, 2, 2, "pool1", "VALID")
@@ -91,26 +84,6 @@ class alexNet(object):
 
         self.fc3 = fcLayer(dropout2, 4096, self.CLASSNUM, True, "fc8")
 
-    def loadModel(self, sess):
-        """load model"""
-        wDict = np.load(self.MODELPATH, encoding = "bytes").item()
-        for name in wDict:
-            if name not in self.SKIP:
-                with tf.variable_scope(name, reuse = True):
-                    for p in wDict[name]:
-                        if len(p.shape) == 1:
-                            
-                            sess.run(tf.get_variable('b', trainable = False).assign(p))
-                        else:
-                            sess.run(tf.get_variable('w', trainable = False).assign(p))
-
-
-def listdir_nohidden(path):
-    return glob.glob(os.path.join(path, '*')) # so there is no problem with hidden files
-
-for f in listdir_nohidden(testPath):
-    #print(f)
-    testImg.append(cv2.imread(f))
  
 imgMean = np.array([104, 117, 124], np.float)
 x = tf.placeholder("float", [1, 227, 227, 3])
