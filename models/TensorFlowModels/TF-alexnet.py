@@ -1,44 +1,51 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from skimage import io, transform
-
+import os
+import urllib.request
+import argparse
+import sys
+import alexnet
+import cv2
 import tensorflow as tf
 import numpy as np
-import matplotlib.pyplot as plt
-import os
-import torch
-import time
-import argparse
-import random
-import shutil
-import sys
-import warnings
-from imgnet import imagenet_data
-warnings.filterwarnings("ignore")
+import caffe_classes
+import glob
 
-epochs=10
-channels=3
-num_threads=4
-num_classes=1000
 
-sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 
-d = imagenet_data(batch_size=4, sess=sess)
-image_batch_tensor, target_batch_tensor = d.build_train_data_tensor()
 
-#Definicao do modelo
-#modelo to-do
-#fim modelo
+dropoutPro = 1
+classNum = 1000
+skip = []
+#get testImage
+testPath = "testModel"
+testImg = []
 
-loss_fc = tf.nn.softmax_cross_entropy_with_logits(logits, tf.cast(target_batch_tensor, tf.float32), name="cross-entropy")
-optimizer = tf.train.MomentumOptimizer(learning_rate=learning_rate, momentum=0.9)
+def listdir_nohidden(path):
+    return glob.glob(os.path.join(path, '*')) # so there is no problem with hidden files
 
-since = time.time()
-
-for i in range(epochs):
-        epoch_time = time.time()
-        print("Epoch ", i)
-        for j, (input, targets) in enumerate(sess.run([image_batch_tensor, target_batch_tensor])):
-                print("Batch numero ", j)
-print("Fim")
+for f in listdir_nohidden(testPath):
+    #print(f)
+    testImg.append(cv2.imread(f))
+ 
+imgMean = np.array([104, 117, 124], np.float)
+x = tf.placeholder("float", [1, 227, 227, 3])
+ 
+model = alexnet.alexNet(x, dropoutPro, classNum, skip)
+score = model.fc3
+softmax = tf.nn.softmax(score)
+ 
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    model.loadModel(sess) #Load the model
+ 
+    for i, img in enumerate(testImg):
+        #img preprocess
+        test = cv2.resize(img.astype(float), (227, 227)) #resize
+        test -= imgMean #subtract image mean
+        test = test.reshape((1, 227, 227, 3)) #reshape into tensor shape
+        maxx = np.argmax(sess.run(softmax, feed_dict = {x: test}))
+        res = caffe_classes.class_names[maxx] #find the max probility
+        #print(res)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(img, res, (int(img.shape[0]/3), int(img.shape[1]/3)), font, 1, (0, 0, 255), 2) #putting on the labels
+        cv2.imshow("demo", img) 
+        cv2.waitKey(0)
