@@ -17,6 +17,9 @@ batchSize = 4
 train_file = 
 val_file = 
 
+#usar para dar sequencia.
+#https://github.com/kratzert/finetune_alexnet_with_tensorflow/blob/master/datagenerator.py
+
 tr_data = ImageDataGenerator(train_file,
                                  mode='training',
                                  batch_size=batch_size,
