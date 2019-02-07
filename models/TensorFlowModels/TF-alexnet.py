@@ -112,11 +112,18 @@ class alexNet(object):
  
 imgMean = np.array([104, 117, 124], np.float)
 x = tf.placeholder("float", [1, 227, 227, 3])
- 
+y_true = tf.placeholder(tf.float32, shape = [None, 10])
+  
 model = alexnet.alexNet(x, dropout_rate, classNum, skip)
+
 score = model.fc3
 softmax = tf.nn.softmax(score)
- 
+
+cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels = y_true, logits = score)) 
+
+optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
+train = optimizer.minimize(cross_entropy)
+  
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     for epoch in range(epochs):
@@ -126,3 +133,5 @@ with tf.Session() as sess:
             sess.run(train_op, feed_dict={x: img_batch,
                                           y: label_batch,
                                           keep_prob: dropout_rate})
+            matches = tf.equal(tf.argmax(score, 1), tf.argmax(y_true, 1))
+            acc = tf.reduce_mean(tf.cast(matches, tf.float32))
