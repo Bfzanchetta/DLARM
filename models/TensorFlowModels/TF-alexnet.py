@@ -11,6 +11,19 @@ skip = []
 testPath = "testModel"
 testImg = []
 
+tr_data = ImageDataGenerator(train_file,
+                                 mode='training',
+                                 batch_size=batch_size,
+                                 num_classes=num_classes,
+                                 shuffle=True)
+
+val_data = ImageDataGenerator(val_file,
+                                 mode='inference',
+                                 batch_size=batch_size,
+                                 num_classes=num_classes,
+                                 shuffle=False)
+
+
 def maxPoolLayer(x, kHeight, kWidth, strideX, strideY, name, padding = "SAME"):
     """max-pooling"""
     return tf.nn.max_pool(x, ksize = [1, kHeight, kWidth, 1], strides = [1, strideX, strideY, 1], padding = padding, name = name)
@@ -94,10 +107,9 @@ softmax = tf.nn.softmax(score)
  
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    model.loadModel(sess) #Load the model
- 
     for i, img in enumerate(testImg):
-        #img preprocess
+        
+        
         test = cv2.resize(img.astype(float), (227, 227)) #resize
         test -= imgMean #subtract image mean
         test = test.reshape((1, 227, 227, 3)) #reshape into tensor shape
