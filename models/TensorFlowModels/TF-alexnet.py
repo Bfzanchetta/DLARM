@@ -5,14 +5,14 @@ import tensorflow as tf
 import numpy as np
 import glob
 
-dropoutPro = 1
+learning_rate = 0.01
+dropout_rate = 0.5
 classNum = 1000
 skip = []
 testPath = "testModel"
 testImg = []
 epochs = 10
 batchSize = 4
-
 
 tr_data = ImageDataGenerator(train_file,
                                  mode='training',
@@ -110,7 +110,7 @@ class alexNet(object):
 imgMean = np.array([104, 117, 124], np.float)
 x = tf.placeholder("float", [1, 227, 227, 3])
  
-model = alexnet.alexNet(x, dropoutPro, classNum, skip)
+model = alexnet.alexNet(x, dropout_rate, classNum, skip)
 score = model.fc3
 softmax = tf.nn.softmax(score)
  
@@ -120,3 +120,6 @@ with tf.Session() as sess:
     for epoch in range(epochs):
         for i in range(batchSize):
             img_batch, label_batch = sess.run(next_batch)
+            sess.run(train_op, feed_dict={x: img_batch,
+                                          y: label_batch,
+                                          keep_prob: dropout_rate})
