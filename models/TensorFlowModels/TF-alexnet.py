@@ -23,6 +23,12 @@ val_data = ImageDataGenerator(val_file,
                                  num_classes=num_classes,
                                  shuffle=False)
 
+iterator = Iterator.from_structure(tr_data.data.output_types, tr_data.data.output_shapes)
+next_batch = iterator.get_next()
+
+training_init_op = iterator.make_initializer(tr_data.data)
+validation_init_op = iterator.make_initializer(val_data.data)
+
 
 def maxPoolLayer(x, kHeight, kWidth, strideX, strideY, name, padding = "SAME"):
     """max-pooling"""
