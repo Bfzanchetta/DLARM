@@ -113,6 +113,8 @@ softmax = tf.nn.softmax(score)
  
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
+    sess.run(training_init_op)
+    
     for i, img in enumerate(testImg):
         
         
