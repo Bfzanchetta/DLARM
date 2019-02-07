@@ -20,6 +20,7 @@ val_file =
 #usar para dar sequencia.
 #https://github.com/kratzert/finetune_alexnet_with_tensorflow/blob/master/datagenerator.py
 #https://github.com/fastai/courses/blob/master/deeplearning2/imagenet_process.ipynb
+#resnet https://github.com/fastai/courses/blob/master/deeplearning1/nbs/resnet50.py
 
 tr_data = ImageDataGenerator(train_file,
                                  mode='training',
