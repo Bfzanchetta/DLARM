@@ -14,6 +14,9 @@ testImg = []
 epochs = 10
 batchSize = 4
 
+train_file = 
+val_file = 
+
 tr_data = ImageDataGenerator(train_file,
                                  mode='training',
                                  batch_size=batch_size,
@@ -116,8 +119,8 @@ softmax = tf.nn.softmax(score)
  
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    sess.run(training_init_op)
     for epoch in range(epochs):
+        sess.run(training_init_op)
         for i in range(batchSize):
             img_batch, label_batch = sess.run(next_batch)
             sess.run(train_op, feed_dict={x: img_batch,
