@@ -10,6 +10,9 @@ classNum = 1000
 skip = []
 testPath = "testModel"
 testImg = []
+epochs = 10
+batchSize = 4
+
 
 tr_data = ImageDataGenerator(train_file,
                                  mode='training',
@@ -114,12 +117,6 @@ softmax = tf.nn.softmax(score)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     sess.run(training_init_op)
-    
-    for i, img in enumerate(testImg):
-        
-        
-        test = cv2.resize(img.astype(float), (227, 227)) #resize
-        test -= imgMean #subtract image mean
-        test = test.reshape((1, 227, 227, 3)) #reshape into tensor shape
-        maxx = np.argmax(sess.run(softmax, feed_dict = {x: test}))
-        res = caffe_classes.class_names[maxx] #find the max probility
+    for epoch in range(epochs):
+        for i in range(batchSize):
+            img_batch, label_batch = sess.run(next_batch)
