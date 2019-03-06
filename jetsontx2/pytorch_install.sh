@@ -5,7 +5,9 @@ sudo apt-get install python-pip
 pip install --upgrade pip==9.0.1
 sudo apt-get install python-dev
 
-sudo pip install numpy scipy # ~20-30 min
+sudo pip install numpy==1.15.1
+sudo pip install scipy # ~20-30 min
+sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml
 sudo pip install scikit-build
 sudo apt-get -y install cmake
