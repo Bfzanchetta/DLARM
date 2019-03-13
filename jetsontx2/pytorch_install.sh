@@ -43,6 +43,7 @@ cd pytorch
 sudo pip install -U setuptools
 sudo pip install -r requirements.txt
 git submodule update --init --recursive
+sudo apt-get install libfreetype6-dev pkg-config libpng12-dev
 
 python setup.py build_deps
 
@@ -83,4 +84,3 @@ sudo pip install scikit-image
 sudo apt install python-sklearn  
 
 sudo pip --no-cache-dir install torchvision
-
