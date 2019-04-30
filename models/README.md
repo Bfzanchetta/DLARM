@@ -1,30 +1,12 @@
 # About the Models
-## LeNet on TensorFlow ##
-First Model is
+## LeNet on PyTorch on CIFAR Dataset ##
 
-## LeNet on PyTorch ##
-Second Model is
+## LeNet on PyTorch on MNIST Dataset ##
 
-## AlexNet on TensorFlow ##
-Third Model is
+## AlexNet on PyTorch on mImgNet Dataset ##
 
-## AlexNet on PyTorch ##
-Fourth Model is
+## VGG11 on PyTorch on mImgNet Dataset ##
 
-## VGG16 on TensorFlow ##
-Fifth Model is
+## Inception on PyTorch on mImgNet Dataset ##
 
-## VGG16 on PyTorch ##
-Six Model is
-
-## Inception on TensorFlow ##
-Seven Model is
-
-## Inception on PyTorch ##
-Eight Model is
-
-## ResNet on TensorFlow ##
-Nineth Model is
-
-## ResNet on PyTorch ##
-Tenth Model is
+## ResNet PyTorch on mImgNet Dataset ##
