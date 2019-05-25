@@ -1,6 +1,8 @@
 # Utils for NVIDIA Jetson TX2 #
 
-This folder contains some scripts that might help begginners on Jetson TX2.
+This folder contains a collection of scripts that might help developers and users of NVIDIA Jetson TX2 to hasten their boards configuration periods.
+
+
 
 ## pyTorch Insallation ##
 This script was adapted from a collective of internet forums.
