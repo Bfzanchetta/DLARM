@@ -1,0 +1,15 @@
+#install utils
+sudo apt-get install htop nano screen
+#change boot order
+##attach hdd/ssd disk to board (in case of hdd, you will need a male-female sata connector)
+##format hdd/sdd disk: 
+#1) Erase everything from Disks program on Ubuntu GUI. (Extra security step)
+#2) Use command $sudo fdisk -l  to order to find the disk partition (e.g. /dev/sda, /dev/sdb1, ...)
+#3) Apply command: $sudo mkfs.ext4 /dev/sdb1 (/dev/sdb1 is the disk partition from the previous item)
+#4) Create a folder to serve as mount point to the disk: $mkdir whatever/ (can be any name you want)
+#5) Change folders permissions: $chmod 757 whatever/
+#6) Mount disk on the new folder: $sudo mount /dev/sdb1 whatever/
+#7) Copy everything from eMMC to the mount folder: $sudo cp -ax / <path/to/whatever/>
+#8) Wait until it finishes copying.
+#9) Unmount the disk's partition: $sudo umount /dev/sdb1
+#10)
