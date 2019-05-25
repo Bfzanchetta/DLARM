@@ -1,15 +1,47 @@
 #install utils
 sudo apt-get install htop nano screen
-#change boot order
+#using disk
 ##attach hdd/ssd disk to board (in case of hdd, you will need a male-female sata connector)
 ##format hdd/sdd disk: 
-#1) Erase everything from Disks program on Ubuntu GUI. (Extra security step)
-#2) Use command $sudo fdisk -l  to order to find the disk partition (e.g. /dev/sda, /dev/sdb1, ...)
-#3) Apply command: $sudo mkfs.ext4 /dev/sdb1 (/dev/sdb1 is the disk partition from the previous item)
-#4) Create a folder to serve as mount point to the disk: $mkdir whatever/ (can be any name you want)
-#5) Change folders permissions: $chmod 757 whatever/
-#6) Mount disk on the new folder: $sudo mount /dev/sdb1 whatever/
-#7) Copy everything from eMMC to the mount folder: $sudo cp -ax / <path/to/whatever/>
-#8) Wait until it finishes copying.
-#9) Unmount the disk's partition: $sudo umount /dev/sdb1
-#10)
+###1) Erase everything from Disks program on Ubuntu GUI. (Extra security step)
+###2) Use command $sudo fdisk -l  to order to find the disk partition (e.g. /dev/sda, /dev/sdb1, ...)
+###3) Apply command: $sudo mkfs.ext4 /dev/sdb1 (/dev/sdb1 is the disk partition from the previous item)
+###4) Create a folder to serve as mount point to the disk: $mkdir whatever/ (can be any name you want)
+###5) Change folders permissions: $chmod 757 whatever/
+###6) Mount disk on the new folder: $sudo mount /dev/sdb1 whatever/
+###7) Copy everything from eMMC to the mount folder: $sudo cp -ax / <path/to/whatever/>
+###8) Wait until it finishes copying.
+###9) Unmount the disk's partition: $sudo umount /dev/sdb1
+##change boot order
+### $cd /boot/extconf
+### $sudo cp extlinux.conf extlinux.conf.original (security copy)
+### $sudo gedit extlinux.conf
+#### copy first LABEL block and copy it below the first LABEL, e.g.:
+......
+      LABEL primary
+      MENU LABEL primary kernel
+      LINUX /boot/Image
+      APPEND ${cbootargs} root=/dev/mmcblk0p1 rw rootwait rootfstype=ext4
+
+      LABEL primary
+      MENU LABEL primary kernel
+      LINUX /boot/Image
+      APPEND ${cbootargs} root=/dev/mmcblk0p1 rw rootwait rootfstype=ext4
+####  apply changes that are selected with <*></*>
+TIMEOUT 30
+DEFAULT <*>satahdd</*>
+
+MENU TITLE p2771-0000 eMMC boot options
+
+LABEL <*>satahdd</*>
+      MENU LABEL primary <*>SATA HDD</*>
+      LINUX /boot/Image
+      APPEND ${cbootargs} root=<*>/dev/sda</*> rw rootwait rootfstype=ext4
+
+LABEL primary
+      MENU LABEL <*>Internal eMMC</*>
+      LINUX /boot/Image
+      APPEND ${cbootargs} root=/dev/mmcblk0p1 rw rootwait rootfstype=ext4
+#### save file and reboot system
+
+sudo apt-get update
