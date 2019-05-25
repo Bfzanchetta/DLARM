@@ -2,7 +2,7 @@
 
 This folder contains a collection of scripts that might help developers and users of NVIDIA Jetson TX2 to hasten their boards configuration periods.
 
-## pyTorch Insallation ##
+## Utils Guide ##
 
 | SCRIPT  | DESCRIPTION |
 | ------------- | ------------- |
