@@ -19,6 +19,7 @@ sudo pip install pandas # ~20-30 min
 sudo pip install Cython
 sudo pip install scikit-image
 sudo apt install python-sklearn 
+
 #good practice
 sudo pip install protobuf
 sudo apt-get install libboost-dev libboost-all-dev
