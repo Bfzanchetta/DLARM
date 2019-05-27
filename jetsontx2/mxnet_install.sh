@@ -4,9 +4,9 @@ tar -xzvf apache-mxnet-src-1.2.1-incubating.tar.gz
 sudo apt-get install -y git build-essential libatlas-base-dev libopencv-dev graphviz python-pip
 sudo apt install libopenblas-dev libatlas-dev liblapack-dev
 sudo apt install liblapacke-dev checkinstall # For OpenCV
-
+sudo pip install --upgrade pip==9.0.1
 sudo pip install numpy==1.16.2
-pip install --upgrade pip==9.0.1
+
 sudo pip install --upgrade setuptools
 #good practice
 sudo pip install protobuf
