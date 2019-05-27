@@ -1,3 +1,5 @@
+wget https://github.com/apache/incubator-mxnet/releases/download/1.2.1/apache-mxnet-src-1.2.1-incubating.tar.gz
+
 sudo apt-get update
 sudo apt-get install -y git build-essential libatlas-base-dev libopencv-dev graphviz python-pip
 sudo pip install --upgrade pip
