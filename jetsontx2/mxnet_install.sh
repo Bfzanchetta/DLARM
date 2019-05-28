@@ -34,4 +34,5 @@ sed -i 's/USE_CUDA_PATH = NONE/USE_CUDA_PATH = \/usr\/local\/cuda/' config.mk
 sed -i 's/USE_CUDNN = 0/USE_CUDNN = 1/' config.mk
 sed -i '/USE_CUDNN/a CUDA_ARCH := -gencode arch=compute_53,code=sm_53 -gencode arch=compute_62,code=sm_62' config.mk
 
+pip install -U numpy 
 
