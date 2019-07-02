@@ -36,3 +36,8 @@ sed -i '/USE_CUDNN/a CUDA_ARCH := -gencode arch=compute_53,code=sm_53 -gencode a
 
 pip install -U numpy 
 
+sudo apt-get install gcc-6 g++-6
+sed -i 's/export CC = gcc/export CC = gcc-6/' config.mk
+sed -i 's/export CXX = g++/export CXX = g++-6/' config.mk
+
+
