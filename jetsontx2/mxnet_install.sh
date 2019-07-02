@@ -28,6 +28,9 @@ sudo pip install graphviz jupyter
 #git clone https://github.com/apache/incubator-mxnet.git --branch v1.4.x --recursive
 cd incubator-mxnet/
 
+sudo gedit 3rdparty/mshadow/make
+sed -i 's/MSHADOW_LDFLAGS += -lblas/MSHADOW_LDFLAGS += -lblas \n        MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' /home/dlarm2/apache-mxnet-src-1.2.1-incubating/3rdparty/mshadow/make/mshadow.mk
+
 cp make/config.mk .
 sed -i 's/USE_CUDA = 0/USE_CUDA = 1/' config.mk
 sed -i 's/USE_CUDA_PATH = NONE/USE_CUDA_PATH = \/usr\/local\/cuda/' config.mk
@@ -39,5 +42,3 @@ pip install -U numpy
 sudo apt-get install gcc-6 g++-6
 sed -i 's/export CC = gcc/export CC = gcc-6/' config.mk
 sed -i 's/export CXX = g++/export CXX = g++-6/' config.mk
-
-
