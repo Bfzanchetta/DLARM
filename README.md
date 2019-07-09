@@ -1,5 +1,16 @@
 # DLARM : A Deep Learning Dissertation on ARM #
 
+DLARM is a study regarding DL frameworks and models on ARM architecture.
+
+# Introducing DLARM #
+
+- [x] Provide install guides and tips for ARM users. 
+- [x] Implement famous models on current DL frameworks.
+- [ ] Perform parameters regulation and configuration.
+- [ ] Perform final tests.
+- [ ] Compare performance and draw results.
+
+
 # Introducing Myself #
 
 I'm Breno Fanchiotti Zanchetta, age 26, born in Brazil.
