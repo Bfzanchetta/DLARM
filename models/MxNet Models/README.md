@@ -14,3 +14,6 @@
 | `MX-GPU-L-VGG-mIMGN10.py` | Sim | Não |
 
 `MX-GPU-L-SQZ-mIMGN10.py` está com problema de sintaxe básico!
+
+Usar como base:
+/osmr/imgclsmob/tree/master/gluon/gluoncv2/models
