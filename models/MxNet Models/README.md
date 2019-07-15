@@ -13,8 +13,8 @@
 | `MX-GPU-L-SQZ-mIMGN10.py` | Sim | Sim(!) |
 | `MX-GPU-L-VGG-mIMGN10.py` | Sim | Sim |
 
-Para compilar:
--Posicione a pasta contendo os diretórios de CPU, GPU e README no mesmo diretório da pasta contendo o dataset.
+Para compilar:  
+-Posicione a pasta contendo os diretórios de CPU, GPU e README no mesmo diretório da pasta contendo o dataset.  
 -`python MX-...-dataset.py`
 
 
