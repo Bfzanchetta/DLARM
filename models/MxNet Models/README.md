@@ -13,7 +13,10 @@
 | `MX-GPU-L-SQZ-mIMGN10.py` | Sim | Sim(!) |
 | `MX-GPU-L-VGG-mIMGN10.py` | Sim | Sim |
 
-`MX-GPU-L-SQZ-mIMGN10.py` está com problema de sintaxe básico!
+Para compilar:
+-Posicione a pasta contendo os diretórios de CPU, GPU e README no mesmo diretório da pasta contendo o dataset.
+-`python MX-...-dataset.py`
+
 
 Usar como base:
 /osmr/imgclsmob/tree/master/gluon/gluoncv2/models
