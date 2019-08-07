@@ -6,7 +6,7 @@ sudo apt install libopenblas-dev libatlas-dev liblapack-dev
 sudo apt install liblapacke-dev checkinstall # For OpenCV
 sudo pip install --upgrade pip==9.0.1
 sudo pip install numpy==1.16.4
-
+sudo apt-get install gfortran
 sudo pip install scipy # ~20-30 min
 sudo apt-get install python-matplotlib
 sudo pip install matplotlib==2.2.3
