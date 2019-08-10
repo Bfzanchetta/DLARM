@@ -31,7 +31,7 @@ sudo pip install graphviz jupyter
 #git clone https://github.com/apache/incubator-mxnet.git --branch v1.4.x --recursive
 cd incubator-mxnet/
 
-sudo gedit 3rdparty/mshadow/make
+sudo gedit 3rdparty/mshadow/make/mshadow.mk
 sed -i 's/MSHADOW_LDFLAGS += -lblas/MSHADOW_LDFLAGS += -lblas \n        MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' /home/dlarm2/apache-mxnet-src-1.2.1-incubating/3rdparty/mshadow/make/mshadow.mk
 
 cp make/config.mk .
