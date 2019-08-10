@@ -7,7 +7,7 @@ sudo apt install liblapacke-dev checkinstall # For OpenCV
 sudo pip install --upgrade pip==9.0.1
 sudo pip install numpy==1.16.4
 sudo apt-get install gfortran
-sudo pip install scipy # ~20-30 min
+sudo pip install scipy # ~20-30 min on HDD
 sudo apt-get install python-matplotlib
 sudo apt-get install libcanberra-gtk-module
 apt-get install libfreetype6-dev pkg-config libpng-dev
@@ -18,15 +18,13 @@ sudo pip install scikit-build
 sudo apt-get -y install cmake
 sudo apt install libffi-dev
 sudo pip install cffi
-sudo pip install pandas # ~20-30 min
+sudo pip install pandas # ~20-30 min on HDD
 sudo pip install Cython
 sudo pip install scikit-image
 sudo apt install python-sklearn 
 
-#good practice
 sudo pip install protobuf
 sudo apt-get install libboost-dev libboost-all-dev
-#end parenthesis
 sudo pip install graphviz jupyter
 #git clone https://github.com/apache/incubator-mxnet.git --branch v1.4.x --recursive
 cd incubator-mxnet/
