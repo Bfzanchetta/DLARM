@@ -10,3 +10,6 @@ apt-get install --no-install-recommends libboost-all-dev
 apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 apt-get install libatlas-base-dev libopenblas-dev
 pip install protobuf
+
+echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/lib/python2.7/:$LD_LIBRARY_PATH" >> ~/.bashrc
+source ~/.bashrc
