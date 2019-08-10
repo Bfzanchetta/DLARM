@@ -51,4 +51,4 @@ wget https://github.com/librosa/librosa/archive/0.6.3.tar.gz
 tar -xzvf 0.6.3.tar.gz
 
 wget http://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz
-tar -xf llvm-6.0.1.src.tar.xz
+tar -xvf llvm-6.0.1.src.tar.xz
