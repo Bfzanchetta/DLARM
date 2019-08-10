@@ -1,4 +1,4 @@
-# Tabela dos Parâmetros Finais #
+# Table of Package Versions for Building Frameworks #
 | PACKAGE       | VERSION FOR MxNet | VERSION FOR PyTorch |
 | ------------- | ------------- | ------------- |
 | CUDA |  |  |
