@@ -9,6 +9,9 @@ sudo pip install numpy==1.16.4
 sudo apt-get install gfortran
 sudo pip install scipy # ~20-30 min
 sudo apt-get install python-matplotlib
+sudo apt-get install libcanberra-gtk-module
+apt-get install libfreetype6-dev pkg-config libpng-dev
+
 sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml
 sudo pip install scikit-build
