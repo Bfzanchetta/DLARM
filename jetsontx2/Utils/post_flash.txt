@@ -45,4 +45,4 @@ LABEL primary
 #### save file and reboot system
 
 sudo apt-get update
-rm -r Templates/ Public/ Videos/ Pictures/ Documents/ Music/
+rm -r Templates/ Public/ Videos/ Pictures/ Documents/ Music/ examples.desktop
