@@ -62,18 +62,25 @@ sudo gedit torch/csrc/distributed/c10d/ddp.cpp
                Comment torch::cuda::nccl::reduce on line 148
    
 sudo nvpmodel -m 0
-sudo DEBUG=1 python setup.py build develop
-
-#If build fails before 100%
-sudo python setup.py clean
-sudo DEBUG=1 python setup.py build develop
-
-#elif build fails after 100%
-sudo python setup.py clean
-sudo DEBUG=1 python setup.py develop
-
-sudo apt clean
 sudo apt-get install libjpeg-dev zlib1g-dev
+
+export USE_NCCL=0
+export USE_DISTRIBUTED=0
+export TORCH_CUDA_ARCH_LIST="5.3;6.2"
+export USE_OPENCV=ON
+export USE_CUDNN=1
+export USE_CUDA=1
+
+sudo apt-get install autoconf automake libtool curl make g++ unzip cmake git
+pip install scikit-build --user
+sudo ldconfig
+sudo apt-get install libfreetype6-dev pkg-config
+sudo apt-get install libjpeg-dev zlib1g-dev
+cd pytorch/
+
+python setup.py bdist_wheel
+sudo DEBUG=1 python setup.py build develop
+sudo pip --no-cache-dir install torchvision
 
 git clone https://github.com/python-pillow/Pillow.git
 cd Pillow/
