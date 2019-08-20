@@ -1,11 +1,12 @@
 sudo apt install -y libopenblas-dev liblapack-dev
+sudo apt-get install -y libfreetype6-dev pkg-config
+sudo apt-get install -y libjpeg-dev zlib1g-dev
+sudo apt-get install -y autoconf automake libtool curl make g++ unzip cmake git alien nano python-dev
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
 #pip install --upgrade pip==9.0.1
-sudo apt-get install -y python-dev
 #sudo pip install numpy==1.15.1
-sudo pip install numpy
-sudo pip install scipy # ~20-30 min
+sudo pip install numpy scipy # ~20-30 min
 sudo apt-get install -y python-matplotlib
 sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml
@@ -22,7 +23,6 @@ wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/releas
 
 sudo add-apt-repository universe
 sudo apt-get update
-sudo apt-get install -y alien nano
 
 sudo alien -g ninja-1.9.0-2.mga7.aarch64.rpm
 cd ninja-1.9.0
@@ -39,26 +39,25 @@ cd pytorch
 sudo pip install -U setuptools
 sudo pip install -r requirements.txt
 git submodule update --init --recursive
-sudo apt-get install libfreetype6-dev pkg-config
 
-python setup.py build_deps
+sudo python setup.py build_deps
 
-sudo gedit /pytorch/CMakeList.txt
-   > CmakeLists.txt : Change NCCL to 'Off' on line 97
-sudo gedit /pytorch/setup.py
-   > setup.py: Add USE_NCCL = False below line 198
-sudo gedit /pytorch/tools/setup_helpers/nccl.py
-   > nccl.py : Change USE_SYSTEM_NCCL to 'False' on line 8
-               Change NCCL to 'False' on line 78
-sudo gedit /pytorch/torch/csrc/cuda/nccl.h
-   > nccl.h : Comment self-include on line 8
-              Comment entire code from line 21 to 28
-sudo gedit torch/csrc/distributed/c10d/ddp.cpp
-   > ddp.cpp : Comment nccl.h include on line 6
-               Comment torch::cuda::nccl::reduce on line 148
+#If building pytorch 1.0.0 for TX2, then you may have to manually disable NCCL
+#sudo gedit /pytorch/CMakeList.txt
+#   > CmakeLists.txt : Change NCCL to 'Off' on line 97
+#sudo gedit /pytorch/setup.py
+#   > setup.py: Add USE_NCCL = False below line 198
+#sudo gedit /pytorch/tools/setup_helpers/nccl.py
+#   > nccl.py : Change USE_SYSTEM_NCCL to 'False' on line 8
+#               Change NCCL to 'False' on line 78
+#sudo gedit /pytorch/torch/csrc/cuda/nccl.h
+#   > nccl.h : Comment self-include on line 8
+#              Comment entire code from line 21 to 28
+#sudo gedit torch/csrc/distributed/c10d/ddp.cpp
+#   > ddp.cpp : Comment nccl.h include on line 6
+#               Comment torch::cuda::nccl::reduce on line 148
    
 sudo nvpmodel -m 0
-sudo apt-get install libjpeg-dev zlib1g-dev
 
 export USE_NCCL=0
 export USE_DISTRIBUTED=0
@@ -67,12 +66,8 @@ export USE_OPENCV=ON
 export USE_CUDNN=1
 export USE_CUDA=1
 
-sudo apt-get install autoconf automake libtool curl make g++ unzip cmake git
-pip install scikit-build --user
+sudo pip install scikit-build --user
 sudo ldconfig
-sudo apt-get install libfreetype6-dev pkg-config
-sudo apt-get install libjpeg-dev zlib1g-dev
-cd pytorch/
 
 python setup.py bdist_wheel
 sudo DEBUG=1 python setup.py build develop
@@ -81,9 +76,5 @@ sudo pip --no-cache-dir install torchvision
 git clone https://github.com/python-pillow/Pillow.git
 cd Pillow/
 sudo python setup.py install
-sudo pip install pandas # ~20-30 min
-sudo pip install Cython
-sudo pip install scikit-image
-sudo apt install python-sklearn  
-
+sudo pip install pandas Cython scikit-image python-sklearn  
 sudo pip --no-cache-dir install torchvision
