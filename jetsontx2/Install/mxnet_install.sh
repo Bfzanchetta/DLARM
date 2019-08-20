@@ -3,6 +3,7 @@ tar -xzvf apache-mxnet-src-1.2.1-incubating.tar.gz
 wget https://github.com/apache/incubator-mxnet/releases/download/1.5.0/apache-mxnet-src-1.5.0-incubating.tar.gz
 tar -xzvf apache-mxnet-src-1.5.0-incubating.tar.gz
 
+sudo apt install -y liblapack3 libopenblas-base libopenblas-dev
 sudo apt-get install -y git build-essential libatlas-base-dev libopencv-dev graphviz python-pip
 sudo apt install libopenblas-dev libatlas-dev liblapack-dev
 sudo apt install liblapacke-dev checkinstall # For OpenCV
