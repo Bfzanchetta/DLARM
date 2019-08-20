@@ -1,11 +1,10 @@
 sudo apt install -y libopenblas-dev liblapack-dev
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
-
-pip install --upgrade pip==9.0.1
+#pip install --upgrade pip==9.0.1
 sudo apt-get install -y python-dev
-
-sudo pip install numpy==1.15.1
+#sudo pip install numpy==1.15.1
+sudo pip install numpy
 sudo pip install scipy # ~20-30 min
 sudo apt-get install -y python-matplotlib
 sudo pip install matplotlib==2.2.3
