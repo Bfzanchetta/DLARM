@@ -1,18 +1,18 @@
-sudo apt install libopenblas-dev libatlas-dev liblapack-dev
-sudo apt install liblapacke-dev checkinstall # For OpenCV
+sudo apt install -y libopenblas-dev liblapack-dev
+sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
 
 pip install --upgrade pip==9.0.1
-sudo apt-get install python-dev
+sudo apt-get install -y python-dev
 
 sudo pip install numpy==1.15.1
 sudo pip install scipy # ~20-30 min
-sudo apt-get install python-matplotlib
+sudo apt-get install -y python-matplotlib
 sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml
 sudo pip install scikit-build
 sudo apt-get -y install cmake
-sudo apt install libffi-dev
+sudo apt install -y libffi-dev
 sudo pip install cffi
 
 #add couple of lines to the end of  ~/.bashrc or ~/.profile
@@ -25,8 +25,7 @@ wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/releas
 
 sudo add-apt-repository universe
 sudo apt-get update
-sudo apt-get install alien
-sudo apt-get install nano
+sudo apt-get install -y alien nano
 
 sudo alien -g ninja-1.9.0-2.mga7.aarch64.rpm
 cd ninja-1.9.0
