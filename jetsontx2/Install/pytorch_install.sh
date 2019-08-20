@@ -15,10 +15,8 @@ sudo apt-get -y install cmake
 sudo apt install -y libffi-dev
 sudo pip install cffi
 
-#add couple of lines to the end of  ~/.bashrc or ~/.profile
-sudo gedit ~/.bashrc
-export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu
-export CUDNN_INCLUDE_DIR=/usr/include
+sudo sh -c "echo export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu >> ~/.bashrc"
+sudo sh -c "echo export CUDNN_INCLUDE_DIR=/usr/include >> ~/.bashrc"
 source ~/.bashrc
 
 wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.9.0-2.mga7.aarch64.rpm
