@@ -31,6 +31,7 @@ sudo sed -i -- 's/aarch64/arm64/g' "debian/control"
 sudo debian/rules binary
 cd ..
 sudo dpkg -i ninja_1.9.0-3_arm64.deb
+sudo rm -r ninja*
 
 sudo apt install -y ninja-build
 cd
