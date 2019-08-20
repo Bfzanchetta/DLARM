@@ -21,22 +21,22 @@ export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu
 export CUDNN_INCLUDE_DIR=/usr/include
 source ~/.bashrc
 
-wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.8.2-3.mga7.aarch64.rpm
+wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.9.0-2.mga7.aarch64.rpm
 
 sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install alien
 sudo apt-get install nano
-sudo alien ninja-1.8.2-3.mga7.aarch64.rpm
-   #If previous line fails, proceed to <$sudo dpkg -i ninja-1.8.2-3.mga7.aarch64.deb> 
-   sudo alien -g ninja-1.8.2-3.mga7.aarch64.rpm
-   cd ninja-1.8.2
-   sudo nano debian/control
-   #at architecture, add arm64 after aarch64 (aarch64, arm64)
-   sudo debian/rules binary
+
+sudo alien -g ninja-1.9.0-2.mga7.aarch64.rpm
+cd ninja-1.9.0
+sudo sed -i -- 's/aarch64/arm64/g' "debian/control"
+# Previous line edits debian/control and replaces aarch64 to arm64 to allow compilation for platform
+sudo debian/rules binary
 cd ..
-sudo dpkg -i ninja_1.8.2-4_arm64.deb
-sudo apt install ninja-build
+sudo dpkg -i ninja_1.9.0-3_arm64.deb
+
+sudo apt install -y ninja-build
 cd ..
 git clone http://github.com/pytorch/pytorch
 cd pytorch
