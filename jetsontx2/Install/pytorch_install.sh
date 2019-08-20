@@ -37,11 +37,9 @@ sudo apt install -y ninja-build
 cd
 git clone http://github.com/pytorch/pytorch
 cd pytorch
+git submodule update --init --recursive
 sudo pip install -U setuptools
 sudo pip install -r requirements.txt
-git submodule update --init --recursive
-
-sudo python setup.py build_deps
 
 #If building pytorch 1.0.0 for TX2, then you may have to manually disable NCCL
 #sudo gedit /pytorch/CMakeList.txt
@@ -60,17 +58,17 @@ sudo python setup.py build_deps
    
 sudo nvpmodel -m 0
 
+sudo pip install scikit-build --user
+sudo ldconfig
+
 export USE_NCCL=0
-export USE_DISTRIBUTED=0
+export USE_DISTRIBUTED=1
 export TORCH_CUDA_ARCH_LIST="5.3;6.2"
 export USE_OPENCV=ON
 export USE_CUDNN=1
 export USE_CUDA=1
 
-sudo pip install scikit-build --user
-sudo ldconfig
-
-python setup.py bdist_wheel
+sudo python setup.py bdist_wheel
 sudo DEBUG=1 python setup.py build develop
 sudo pip --no-cache-dir install torchvision
 
