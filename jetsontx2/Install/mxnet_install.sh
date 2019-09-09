@@ -44,6 +44,8 @@ sudo apt-get install gcc-6 g++-6
 sed -i 's/export CC = gcc/export CC = gcc-6/' config.mk
 sed -i 's/export CXX = g++/export CXX = g++-6/' config.mk
 
+sudo make -j 4
+
 sudo pip install gluoncv
 
 wget https://github.com/librosa/librosa/archive/0.6.3.tar.gz
