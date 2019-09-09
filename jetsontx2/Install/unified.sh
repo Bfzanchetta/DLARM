@@ -65,6 +65,15 @@ DIR="/sys/devices/system/cpu/cpu5/"
   sed -i 's/USE_MKLDNN =/USE_MKLDNN = 0/' config.mk
   sed -i 's/USE_STATIC_MKL = 1/USE_STATIC_MKL = NONE/' config.mk
   sudo make -j 4
+  cd python/
+  sudo pip install -e .
+  cd ../scala-package/
+  sudo mvn install
+  if [ python -c "import mxnet; print(mxnet.__version__);" == 1.5.1 ]; then
+    echo "Sucess"
+  else
+    echo "Error"
+  fi
   #Install PyTorch
   export USE_NCCL=0
   export USE_DISTRIBUTED=1
