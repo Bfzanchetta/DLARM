@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author: Breno Zanchetta
 #Based on Scripts of: Jorge Ximendes
-#User needs to start the download of Java at Oracle, which requires Login
+#User needs to start the download of Java at Oracle, which requires Login, I suggest 8u221
 #alternatively, can use this:
 wget https://github.com/frekele/oracle-java/releases/download/8u212-b10/jdk-8u212-linux-arm64-vfp-hflt.tar.gz
 tar -xf jdk-8u212-linux-arm64-vfp-hflt.tar.gz
