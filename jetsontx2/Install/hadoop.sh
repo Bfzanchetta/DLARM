@@ -10,8 +10,8 @@ cd bin/
 echo "export JAVA_HOME="`pwd` >> ~/.bashrc
 source ~/.bashrc
 cd
-wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
-unzip apache-maven-3.6.2-bin.zip
+sudo apt-get install maven
+sudo apt-get install scala
 
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
 wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
