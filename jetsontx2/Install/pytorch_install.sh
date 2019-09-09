@@ -4,9 +4,7 @@ sudo apt-get install -y libjpeg-dev zlib1g-dev
 sudo apt-get install -y autoconf automake libtool curl make g++ unzip cmake git alien nano python-dev
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install python-pip
-#pip install --upgrade pip==9.0.1
-#sudo pip install numpy==1.15.1
-sudo pip install numpy scipy # ~20-30 min
+sudo pip install numpy scipy # ~20-30 min on HDD
 sudo apt-get install -y python-matplotlib
 sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml
@@ -75,5 +73,6 @@ sudo pip --no-cache-dir install torchvision
 git clone https://github.com/python-pillow/Pillow.git
 cd Pillow/
 sudo python setup.py install
-sudo pip install pandas Cython scikit-image python-sklearn  
+sudo apt-get install python-sklearn
+sudo pip install pandas Cython scikit-image 
 sudo pip --no-cache-dir install torchvision
