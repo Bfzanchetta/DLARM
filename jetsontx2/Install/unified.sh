@@ -43,12 +43,21 @@ source ~/.bashrc
 sudo ldconfig
 
 DIR="/sys/devices/system/cpu/cpu5/"
-# If DIR exists, then the board is jetson TX2 #
+# If DIR exists, then the board is Jetson TX2 #
   echo "Installing MxNet for Jetson TX2."
   wget https://github.com/apache/incubator-mxnet/releases/download/1.5.1.rc0/apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
   tar -xzvf apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
-  cd incubator-mxnet/
+  cd apache-mxnet-src-1.5.1.rc0-incubating
+  sed -i 's/MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=0/MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' ./3rdparty/mshadow/make/mshadow.mk
+  sed -i 's/MSHADOW_LDFLAGS += -lblas/MSHADOW_LDFLAGS += -lblas \n        MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' ./3rdparty/mshadow/make/mshadow.mk
+  cp make/config.mk .
+  sed -i 's/USE_CUDA = 0/USE_CUDA = 1/' config.mk
+  sed -i 's/USE_CUDA_PATH = NONE/USE_CUDA_PATH = \/usr\/local\/cuda/' config.mk
+  sed -i 's/USE_CUDNN = 0/USE_CUDNN = 1/' config.mk
+  sed -i '/USE_CUDNN/a CUDA_ARCH := -gencode arch=compute_53,code=sm_53 -gencode arch=compute_62,code=sm_62' config.mk
   
+  sudo make -j 4
+  #Install PyTorch
   export USE_NCCL=0
   export USE_DISTRIBUTED=1
   export TORCH_CUDA_ARCH_LIST="5.3;6.2"
@@ -59,6 +68,20 @@ DIR="/sys/devices/system/cpu/cpu5/"
 else
   # Else it is a TX1 or Nano
   echo "Installing MxNet for Jetson TX1/Nano."
+  wget https://github.com/apache/incubator-mxnet/releases/download/1.5.1.rc0/apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
+  tar -xzvf apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
+  cd apache-mxnet-src-1.5.1.rc0-incubating
+  sed -i 's/MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=0/MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' ./3rdparty/mshadow/make/mshadow.mk
+  sed -i 's/MSHADOW_LDFLAGS += -lblas/MSHADOW_LDFLAGS += -lblas \n        MSHADOW_CFLAGS += -DMSHADOW_USE_PASCAL=1/' ./3rdparty/mshadow/make/mshadow.mk
+  cp make/config.mk .
+  sed -i 's/USE_CUDA = 0/USE_CUDA = 1/' config.mk
+  sed -i 's/USE_CUDA_PATH = NONE/USE_CUDA_PATH = \/usr\/local\/cuda/' config.mk
+  sed -i 's/USE_CUDNN = 0/USE_CUDNN = 1/' config.mk
+  sed -i '/USE_CUDNN/a CUDA_ARCH := -gencode arch=compute_53,code=sm_53' config.mk
+  
+  sudo make -j 4
+  
+  #Install PyTorch
   export USE_NCCL=0
   export USE_DISTRIBUTED=1
   export TORCH_CUDA_ARCH_LIST="5.3"
