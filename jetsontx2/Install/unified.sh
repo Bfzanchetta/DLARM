@@ -2,6 +2,7 @@
 #instalar java
 rm /etc/apt/sources.list.d/webupd8team*
 sudo add-apt-repository ppa:webupd8team/java
+sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install oracle-java8-installer -y
 sudo apt-get install openjdk-8-jdk maven
@@ -20,5 +21,24 @@ sudo pip install scipy# ~20-30 min on HDD
 sudo apt-get install -y python-matplotlib libcanberra-gtk-module
 
 
+#mxnet nao organizado 
+sudo pip install matplotlib==2.2.3
+sudo pip install pyyaml
+sudo pip install scikit-build
+sudo apt-get -y install cmake
+sudo apt install libffi-dev
+sudo pip install cffi
+sudo pip install pandas # ~20-30 min on HDD
+sudo pip install Cython
+sudo pip install scikit-image
+sudo apt install python-sklearn 
+sudo pip install protobuf
+sudo apt-get install libboost-dev libboost-all-dev
+sudo pip install graphviz jupyter
+
+#
+
 echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/lib/python2.7/:$LD_LIBRARY_PATH" >> ~/.bashrc
 source ~/.bashrc
+
+sudo pip install gluoncv
