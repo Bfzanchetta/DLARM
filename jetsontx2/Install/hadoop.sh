@@ -27,5 +27,5 @@ make check
 sudo make install
 wget https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2-src.tar.gz
 tar xzvf hadoop-2.7.2-src.tar.gz
-sed -i 's/<maven-bundle-plugin.version>2.5.0</maven-bundle-plugin.version>/<maven-bundle-plugin.version>2.5.0</maven-bundle-plugin.version> \n    <additionalparam>-Xdoclint:none</additionalparam>/' ./hadoop-2.7.2-src/pom.xml
-<maven-bundle-plugin.version>2.5.0</maven-bundle-plugin.version>
+sed -i "105i \ \ \ \ <additionalparam>-Xdoclint:none</additionalparam>" ./hadoop-2.7.2-src/pom.xml
+
