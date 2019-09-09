@@ -36,3 +36,4 @@ wget https://issues.apache.org/jira/secure/attachment/12570212/HADOOP-9320.patch
 patch < HADOOP-9320.patch
 cd ~/hadoop-2.7.2-src/
 
+sudo mvn package -Pdist,native -DskipTests -Dtar
