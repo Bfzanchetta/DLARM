@@ -37,14 +37,34 @@ sudo apt install -y ninja-build
 sudo pip install -U setuptools
 sudo nvpmodel -m 0
 echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/lib/python2.7/:$LD_LIBRARY_PATH" >> ~/.bashrc
+sudo sh -c "echo export CUDNN_LIB_DIR=/usr/lib/aarch64-linux-gnu >> ~/.bashrc"
+sudo sh -c "echo export CUDNN_INCLUDE_DIR=/usr/include >> ~/.bashrc"
 source ~/.bashrc
 sudo ldconfig
 
-export USE_NCCL=0
-export USE_DISTRIBUTED=1
-export TORCH_CUDA_ARCH_LIST="5.3;6.2"
-export USE_OPENCV=ON
-export USE_CUDNN=1
-export USE_CUDA=1
+DIR="/sys/devices/system/cpu/cpu5/"
+# If DIR exists, then the board is jetson TX2 #
+  echo "Installing MxNet for Jetson TX2."
+  wget https://github.com/apache/incubator-mxnet/releases/download/1.5.1.rc0/apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
+  tar -xzvf apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
+  cd incubator-mxnet/
+  
+  export USE_NCCL=0
+  export USE_DISTRIBUTED=1
+  export TORCH_CUDA_ARCH_LIST="5.3;6.2"
+  export USE_OPENCV=ON
+  export USE_CUDNN=1
+  export USE_CUDA=1
+  
+else
+  # Else it is a TX1 or Nano
+  echo "Installing MxNet for Jetson TX1/Nano."
+  export USE_NCCL=0
+  export USE_DISTRIBUTED=1
+  export TORCH_CUDA_ARCH_LIST="5.3"
+  export USE_OPENCV=ON
+  export USE_CUDNN=1
+  export USE_CUDA=1
+fi
 
 sudo pip install gluoncv
