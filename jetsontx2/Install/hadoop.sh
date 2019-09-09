@@ -10,6 +10,9 @@ cd bin/
 echo "export JAVA_HOME="`pwd` >> ~/.bashrc
 source ~/.bashrc
 cd
+wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
+unzip apache-maven-3.6.2-bin.zip
+
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
 wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
 tar xzvf protobuf-2.5.0.tar.gz
@@ -28,4 +31,8 @@ sudo make install
 wget https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2-src.tar.gz
 tar xzvf hadoop-2.7.2-src.tar.gz
 sed -i "105i \ \ \ \ <additionalparam>-Xdoclint:none</additionalparam>" ./hadoop-2.7.2-src/pom.xml
+cd hadoop-2.7.2-src/hadoop-common-project/hadoop-common/src
+wget https://issues.apache.org/jira/secure/attachment/12570212/HADOOP-9320.patch
+patch < HADOOP-9320.patch
+cd ~/hadoop-2.7.2-src/
 
