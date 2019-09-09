@@ -40,6 +40,11 @@ echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:/usr/local/lib/python2.7
 source ~/.bashrc
 sudo ldconfig
 
-
+export USE_NCCL=0
+export USE_DISTRIBUTED=1
+export TORCH_CUDA_ARCH_LIST="5.3;6.2"
+export USE_OPENCV=ON
+export USE_CUDNN=1
+export USE_CUDA=1
 
 sudo pip install gluoncv
