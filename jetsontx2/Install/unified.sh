@@ -1,4 +1,11 @@
 #!/bin/bash
+sudo apt-get install -y nano 
+#Prepare the Board to Max Efficiency
+#Open terminal and apply command $sudo visudo 
+#Add your username at end of file: myusername   ALL=(ALL) NOPASSWD:ALL
+sudo jetson_clocks
+sudo sh -c "echo 1 > /sys/devices/system/cpu/cpu1/online"
+sudo sh -c "echo 1 > /sys/devices/system/cpu/cpu2/online"
 #instalar java
 rm /etc/apt/sources.list.d/webupd8team*
 sudo add-apt-repository ppa:webupd8team/java
@@ -10,7 +17,7 @@ sudo apt-get install openjdk-8-jdk maven
 #resto dos pacotes
 sudo apt install -y liblapack3 libopenblas-base libopenblas-dev libatlas-dev libatlas-base-dev liblapack-dev
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
-sudo apt-get install -y autoconf automake libtool curl make cmake g++ unzip apt-utils git alien nano htop build-essential python-dev libopencv-dev graphviz python-pip
+sudo apt-get install -y autoconf automake libtool curl make cmake g++ unzip apt-utils git alien htop build-essential python-dev libopencv-dev graphviz python-pip
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-dev libhdf5-serial-dev protobuf-compiler libprotobuf-java
 sudo apt-get install --no-install-recommends libboost-all-dev libboost-dev
 sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
