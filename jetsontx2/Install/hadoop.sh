@@ -15,3 +15,13 @@ wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.
 tar xzvf protobuf-2.5.0.tar.gz
 cd protobuf-2.5.0/
 ./configure --prefix=/usr
+wget https://gist.github.com/BennettSmith/7111094/archive/40085b5022b5bc4d5656a9906aee30fa62414b06.zip
+unzip 40085b5022b5bc4d5656a9906aee30fa62414b06.zip
+cd 7111094-40085b5022b5bc4d5656a9906aee30fa62414b06
+mv * ../
+cd ..
+git apply 0001-Add-generic-gcc-header-to-Makefile.am.patch
+git apply 0001-Add-generic-GCC-support-for-atomic-operations.patch
+make
+make check
+sudo make install
