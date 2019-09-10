@@ -28,7 +28,8 @@ sudo apt-get install -y python-matplotlib libcanberra-gtk-module
 sudo pip install matplotlib==2.2.3
 sudo pip install pyyaml scikit-build jupyter --user
 sudo apt install -y libffi-dev
-sudo pip install -y cffi pandas Cython scikit-image python-sklearn 
+sudo pip install -y cffi pandas Cython scikit-image
+sudo apt-get install -y python-sklearn
 #se protobuf falhar, jogar pra ca
 
 sudo alien -g ninja-1.9.0-2.mga7.aarch64.rpm
