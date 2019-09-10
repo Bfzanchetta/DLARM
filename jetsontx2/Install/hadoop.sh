@@ -10,7 +10,10 @@ cd bin/
 echo "export JAVA_HOME="`pwd` >> ~/.bashrc
 source ~/.bashrc
 cd
-sudo apt-get install maven
+
+wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+tar -xf apache-maven-3.3.9-bin.tar.gz
+
 sudo apt-get install scala
 
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
