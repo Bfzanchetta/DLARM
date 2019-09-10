@@ -16,6 +16,8 @@ sudo update-alternatives --set java /opt/java/jdk1.8.0_112/bin/java
 wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 tar -xf apache-maven-3.3.9-bin.tar.gz
 
+sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreetype6-dev fontconfig fontconfig-config libfontconfig1-dev libssl-dev openssl findbugs -y
+
 sudo apt-get install scala
 
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
