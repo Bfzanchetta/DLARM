@@ -32,6 +32,7 @@ sudo pip install -y cffi pandas Cython scikit-image
 sudo apt-get install -y python-sklearn
 #se protobuf falhar, jogar pra ca
 
+wget https://rpmfind.net/linux/mageia/distrib/cauldron/aarch64/media/core/release/ninja-1.9.0-2.mga7.aarch64.rpm
 sudo alien -g ninja-1.9.0-2.mga7.aarch64.rpm
 cd ninja-1.9.0
 sudo sed -i -- 's/aarch64/arm64/g' "debian/control"
