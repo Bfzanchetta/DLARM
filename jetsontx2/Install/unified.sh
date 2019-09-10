@@ -15,7 +15,7 @@ sudo apt-get install oracle-java8-installer -y
 sudo apt-get install openjdk-8-jdk maven
 
 #resto dos pacotes
-sudo apt install -y liblapack3 libopenblas-base libopenblas-dev libatlas-dev libatlas-base-dev liblapack-dev
+sudo apt install -y liblapack3 libopenblas-base libopenblas-dev libatlas-base-dev liblapack-dev
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install -y autoconf automake libtool curl make cmake g++ unzip apt-utils git alien htop build-essential python-dev libopencv-dev graphviz python-pip
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-dev libhdf5-serial-dev protobuf-compiler libprotobuf-java
