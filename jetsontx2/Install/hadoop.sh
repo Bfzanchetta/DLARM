@@ -18,7 +18,8 @@ tar -xf apache-maven-3.3.9-bin.tar.gz
 
 sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreetype6-dev fontconfig fontconfig-config libfontconfig1-dev libssl-dev openssl findbugs -y
 
-sudo apt-get install scala
+wget https://downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
+tar -xf scala-2.11.6.tgz 
 
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
 wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
