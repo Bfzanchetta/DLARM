@@ -50,6 +50,7 @@ source ~/.bashrc
 sudo ldconfig
 
 DIR="/sys/devices/system/cpu/cpu5/"
+if [ -d "$DIR" ]; then
 # If DIR exists, then the board is Jetson TX2 #
   echo "Installing MxNet for Jetson TX2."
   wget https://github.com/apache/incubator-mxnet/releases/download/1.5.1.rc0/apache-mxnet-src-1.5.1.rc0-incubating.tar.gz
