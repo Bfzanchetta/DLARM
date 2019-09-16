@@ -8,3 +8,8 @@ mkdir build
 cd build/
 cmake $LLVM_SRC_DIR -DCMAKE_BUILD_TYPE=Release \
                     -DLLVM_TARGETS_TO_BUILD="ARM;X86;AArch64"
+http://llvmlite.pydata.org/en/latest/admin-guide/install.html
+http://llvmlite.pydata.org/en/latest/
+https://pypi.org/project/llvmlite/
+Numba
+Librosa
