@@ -1,1 +1,1 @@
-sudo apt-get install libsdl2-2.0-0
+sudo apt-get install -y libsdl2-2.0-0 ffmpeg-doc
