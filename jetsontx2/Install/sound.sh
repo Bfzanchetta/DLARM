@@ -4,5 +4,7 @@ sudo pip install Cython cffi PySoundFile
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-7.1.0/llvm-7.1.0.src.tar.xz
 tar -xf llvm-7.1.0.src.tar.xz
 cd llvm-7.1.0.src/
+mkdir build
+cd build/
 cmake $LLVM_SRC_DIR -DCMAKE_BUILD_TYPE=Release \
                     -DLLVM_TARGETS_TO_BUILD="ARM;X86;AArch64"
