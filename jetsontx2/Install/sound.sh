@@ -12,6 +12,7 @@ cd
 cd Downloads
 git clone https://github.com/numba/llvmlite.git
 sudo LLVM_CONFIG=/home/dlarm/Downloads/llvm-7.1.0.src/build/bin/llvm-config python setup.py develop
+sudo LLVM_CONFIG=/home/dlarm/Downloads/llvm-7.1.0.src/build/bin/llvm-config python setup.py install
 http://llvmlite.pydata.org/en/latest/admin-guide/install.html
 http://llvmlite.pydata.org/en/latest/
 https://pypi.org/project/llvmlite/
