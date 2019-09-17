@@ -8,6 +8,7 @@ mkdir build
 cd build/
 cmake $LLVM_SRC_DIR -DCMAKE_BUILD_TYPE=Release \
                     -DLLVM_TARGETS_TO_BUILD="ARM;X86;AArch64"
+sudo make -j 4
 cd
 cd Downloads
 git clone https://github.com/numba/llvmlite.git
