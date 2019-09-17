@@ -23,5 +23,5 @@ sudo apt-get remove python-joblib
 pip install librosa==0.6.3
 
 sudo apt-get install sox libsox-dev libsox-fmt-all
-
+sudo pip install kaldi_io
 
