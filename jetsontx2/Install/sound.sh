@@ -19,3 +19,5 @@ git clone git://github.com/numba/numba.git
 cd numba/
 python setup.py build_ext --inplace
 pip install librosa==0.6.3
+sudo apt-get remove python-joblib
+
