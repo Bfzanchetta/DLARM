@@ -17,5 +17,4 @@ sudo pip install numba
 git clone git://github.com/numba/numba.git
 cd numba/
 python setup.py build_ext --inplace
-
-Librosa
+pip install librosa==0.6.3
