@@ -20,4 +20,8 @@ cd numba/
 python setup.py build_ext --inplace
 pip install librosa==0.6.3
 sudo apt-get remove python-joblib
+pip install librosa==0.6.3
+
+sudo apt-get install sox libsox-dev libsox-fmt-all
+
 
