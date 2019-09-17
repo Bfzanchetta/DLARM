@@ -33,4 +33,4 @@ make install
 sudo pip install flake8
 git clone https://github.com/pytorch/audio.git
 cd audio/
-
+sudo python setup.py install
