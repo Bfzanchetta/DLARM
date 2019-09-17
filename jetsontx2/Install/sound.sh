@@ -8,6 +8,10 @@ mkdir build
 cd build/
 cmake $LLVM_SRC_DIR -DCMAKE_BUILD_TYPE=Release \
                     -DLLVM_TARGETS_TO_BUILD="ARM;X86;AArch64"
+cd
+cd Downloads
+git clone https://github.com/numba/llvmlite.git
+sudo LLVM_CONFIG=/home/dlarm/Downloads/llvm-7.1.0.src/build/bin/llvm-config python setup.py develop
 http://llvmlite.pydata.org/en/latest/admin-guide/install.html
 http://llvmlite.pydata.org/en/latest/
 https://pypi.org/project/llvmlite/
