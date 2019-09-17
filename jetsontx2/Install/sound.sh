@@ -24,10 +24,12 @@ pip install librosa==0.6.3
 
 sudo apt-get install sox libsox-dev libsox-fmt-all
 sudo pip install kaldi_io
-
 git clone https://github.com/google/protobuf.git protobuf
 cd protobuf/
 ./autogen.sh
 ./configure --host=aarch64-linux-gnu --prefix=`pwd`/../`uname -m`-linux-gnu --disable-protoc PATH=`pwd`/../`uname -m`-linux-gnu/bin:$PATH
 make
 make install
+git clone https://github.com/pytorch/audio.git
+cd audio/
+sudo pip install flake8
