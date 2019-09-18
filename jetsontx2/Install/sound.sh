@@ -27,6 +27,7 @@ sudo pip install kaldi_io
 git clone https://github.com/google/protobuf.git protobuf
 cd protobuf/
 ./autogen.sh
+#https://criu.org/Build_protobuf#Cross-compile_for_ARM
 ./configure --host=aarch64-linux-gnu --prefix=`pwd`/../`uname -m`-linux-gnu --disable-protoc PATH=`pwd`/../`uname -m`-linux-gnu/bin:$PATH
 make
 make install
