@@ -34,4 +34,4 @@ sudo pip install flake8
 git clone https://github.com/pytorch/audio.git
 cd audio/
 sudo python setup.py install
-sudo pip install scikit-image
+sudo pip install scikit-image pandas python_speech_features
