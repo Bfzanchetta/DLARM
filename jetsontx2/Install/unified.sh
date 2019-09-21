@@ -110,4 +110,7 @@ else
   export USE_CUDA=1
 fi
 
-sudo pip install gluoncv
+sudo pip uninstall gluoncv #removes GluonCV, because pip installation creates bugs after JetPack 4.2.2(rev.1)
+git clone https://github.com/dmlc/gluon-cv
+cd gluon-cv/
+sudo python setup.py install --user #builds GLuonCV from source
