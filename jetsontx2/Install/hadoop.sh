@@ -45,3 +45,5 @@ patch < HADOOP-9320.patch
 cd ~/hadoop-2.7.2-src/
 
 sudo mvn package -Pdist,native -DskipTests -Dtar
+
+https://linuxconfig.org/how-to-install-hadoop-on-ubuntu-18-04-bionic-beaver-linux
