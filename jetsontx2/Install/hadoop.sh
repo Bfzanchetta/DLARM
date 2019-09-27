@@ -16,14 +16,8 @@ sudo mv jdk1.8.0_112 /opt/java
 sudo update-alternatives --install "/usr/bin/java" "java" "/opt/java/jdk1.8.0_112/bin/java" 1
 sudo update-alternatives --set java /opt/java/jdk1.8.0_112/bin/java
 
-
-wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-tar -xf apache-maven-3.3.9-bin.tar.gz
-
 sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreetype6-dev fontconfig fontconfig-config libfontconfig1-dev libssl-dev openssl findbugs -y
 
-wget https://downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
-tar -xf scala-2.11.6.tgz 
 
 sudo apt-get install -y openssh* openssl* libssl* pkg-config* cmake* libsnappy-dev* bzip2* libbz2-dev* build-essential* autoconf* automake* libtool* zlib1g* libjansson* fuse*
 wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
@@ -47,6 +41,12 @@ cd hadoop-2.7.2-src/hadoop-common-project/hadoop-common/src
 wget https://issues.apache.org/jira/secure/attachment/12570212/HADOOP-9320.patch
 patch < HADOOP-9320.patch
 cd ~/hadoop-2.7.2-src/
+
+wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+tar -xf apache-maven-3.3.9-bin.tar.gz
+
+wget https://downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
+tar -xf scala-2.11.6.tgz 
 
 sudo mvn package -Pdist,native -DskipTests -Dtar
 
