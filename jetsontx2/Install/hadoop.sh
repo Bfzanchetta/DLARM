@@ -41,3 +41,7 @@ wget https://downloads.lightbend.com/scala/2.11.6/scala-2.11.6.tgz
 tar -xf scala-2.11.6.tgz 
 
 https://linuxconfig.org/how-to-install-hadoop-on-ubuntu-18-04-bionic-beaver-linux
+
+#Install Deps for Ambari
+sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreetype6-dev fontconfig fontconfig-config libfontconfig1-dev libssl-dev openssl findbugs -y
+
