@@ -1,12 +1,14 @@
 #!/bin/bash
 #Author: Breno Zanchetta
-#Based on Scripts of: Jorge Ximendes
-#User needs to start the download of Java at Oracle, which requires Login, I suggest 8u112
-#alternatively, can use this:
 cd
+mkdir BigData
+echo "export BigData=~/BigData" >> ~/.bashrc
+source ~/.bashrc
+
 sudo apt-get update
 sudo apt-get remove openjdk*
 mkdir BigData
+
 cd BigData
 wget https://download.oracle.com/otn/java/jdk/8u112-b15/jdk-8u112-linux-arm64-vfp-hflt.tar.gz
 
