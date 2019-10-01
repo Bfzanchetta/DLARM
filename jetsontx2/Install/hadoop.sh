@@ -51,4 +51,6 @@ https://linuxconfig.org/how-to-install-hadoop-on-ubuntu-18-04-bionic-beaver-linu
 
 #Install Deps for Ambari
 sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreetype6-dev fontconfig fontconfig-config libfontconfig1-dev libssl-dev openssl findbugs -y
-
+sudo apt-get install -y nodejs npm
+cd /usr/bin && sudo ln -s nodejs node
+sudo npm install -g brunch@1.7.10
