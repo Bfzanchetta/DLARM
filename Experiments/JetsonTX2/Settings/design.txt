@@ -1,0 +1,113 @@
+cpu0: armA57 core básico
+cpu1: denver2
+cpu2: denver2
+cpu3-5: armA57
+
+arm basica ligada (nenhuma denver)
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 0 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 0 > /sys/devices/system/cpu/cpu5/online
+
+arm + 1 CPU (nenhuma denver)
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 0 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm + 2 CPU (nenhuma denver)
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 0 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm + 3 CPU (nenhuma denver)
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 0 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 1 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 1 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 0 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 1cpu+ 1 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 2cpu+ 1 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 3cpu+ 1 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 0 > /sys/devices/system/cpu/cpu2/online
+echo 1 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 2 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 1 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 0 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 1cpu +2 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 1 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 0 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 2cpu +2 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 1 > /sys/devices/system/cpu/cpu2/online
+echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
+arm+ 3cpu +2 Denver
+sudo echo 3 > /proc/sys/vm/drop_caches;
+echo 1 > /sys/devices/system/cpu/cpu0/online
+echo 1 > /sys/devices/system/cpu/cpu1/online
+echo 1 > /sys/devices/system/cpu/cpu2/online
+echo 1 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu4/online
+echo 1 > /sys/devices/system/cpu/cpu5/online
+
