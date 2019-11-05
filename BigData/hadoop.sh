@@ -54,3 +54,15 @@ sudo apt install python python-dev rpm yum build-essential libfreetype6 libfreet
 sudo apt-get install -y nodejs npm
 cd /usr/bin && sudo ln -s nodejs node
 sudo npm install -g brunch@1.7.10
+
+#install protobuf
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
+tar -xvf protobuf-all-3.10.1.tar.gz
+rm protobuf-all-3.10.1.tar.gz
+cd protobuf-3.10.1/
+chmod 777 autogen.sh
+./autogen.sh
+./configure --host=aarch64-unknown-linux-gnu CC=/usr/bin/aarch64-linux-gnu-gcc-7 CXX=/usr/bin/aarch64-linux-gnu-g++-7
+sudo make -j 4
+sudo make install
+sudo ldconfig
