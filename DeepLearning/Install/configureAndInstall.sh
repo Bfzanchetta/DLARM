@@ -3,11 +3,12 @@
 # Name: General Configuration Script                                                                                         #
 # Description: This shell script intends to set a shape for package installation and configuration to avoid disorganization. #
 # ########################################################################################################################## #
-
+## to-do: split chunks of code into smaller scripts for further verification and invoke these algorithms here
 # Routine to remove useless folders from root folder
 cd && sudo rm -r Templates/ Public/ Videos/ Pictures/ Documents/ Music/ examples.desktop
 ## to-do: add swap script
 sudo echo "sudo jetson_clocks" >> ~/.bashrc ; source ~/.bashrc
+sudo dpkg --add-architecture arm64
 
 # Routine to generate folder schematics
 # Specifications: Generate folder trees and assign global variables as shortcuts to .bashrc
@@ -37,8 +38,7 @@ cd $A ; mkdir BigData && cd BigData && echo "export C="`pwd` >> ~/.bashrc ; sour
 ## to-do: contains problems on navigating through folders, must finish Big Data also.
 
 # Routine to remove Python 2.7 and its dependencies and install Python 3.5 and Pip
-sudo apt remove -y python3.6-minimal
-sudo apt remove -y python2.7-minimal
+sudo apt remove -y python3.6-minimal python2.7-minimal
 sudo apt autoremove -y
 sudo rm -r /usr/lib/python3/dist-packages
 sudo rm -r /usr/lib/python2.7/dist-packages
@@ -54,18 +54,46 @@ sudo make altinstall
 sudo make install
 echo "alias python=python3.5" >> ~/.bashrc ; source ~/.bashrc
 echo "alias python3=python3.5" >> ~/.bashrc ; source ~/.bashrc
+echo "alias sudo='sudo '" >> ~/.bashrc ; source ~/.bashrc
 sudo python3.5 /usr/local/lib/python3.5/site-packages/easy_install.py pip
+sudo pip install --upgrade pip
 
 
 # Routine to download and install packages at pre-determined folders
 # MxNet from Source #
+## to-do: add cmake installation and configuration script
+## to-do: criar função que chama (sudo apt remove -y python3.6-minimal python2.7-minimal) entre todo par de comandos de instalação
 sudo apt install -y liblapack3 libopenblas-base libopenblas-dev
-sudo apt-get install -y git build-essential libatlas-base-dev libopencv-dev graphviz
+sudo apt install -y liblapack3 libopenblas-base libopenblas-dev libatlas-base-dev liblapack-dev
+sudo apt install -y liblapacke-dev checkinstall # For OpenCV
+sudo apt-get install -y autoconf automake libtool curl make g++ unzip apt-utils git alien htop build-essential libopencv-dev graphviz
+sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-dev libhdf5-serial-dev protobuf-compiler libprotobuf-java
+sudo pip install -U Cython
+sudo pip install -U protobuf numpy
+sudo apt-get install -y libfreetype6-dev pkg-config libpng-dev libjpeg-dev zlib1g-dev
+sudo apt-get install -y gfortran
+sudo apt-get install -y python-matplotlib libcanberra-gtk-module
+sudo pip install -U matplotlib==2.2.3
+sudo apt install -y libffi-dev
+##to-do: solve scipy installation error
+cd $B2B;
+git clone https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
+sudo tar -xf scipy-1.3.0.tar.gz
+sudo rm scipy-1.3.0.tar.gz
+cd scipy-1.3.0/
+sudo python setup.py install --user
 
 
+sudo pip install -U cffi pandas scikit-image
 
-
-
-
-
-
+# Routine to download and install PyTorch, TensorFlow and Keras
+apt-get install openjdk-8-jdk
+## to-do: test the next two lines:
+sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
+sudo pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
+#
+cd $B2B;
+wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.14.0/tensorflow-1.14.0-cp35-none-linux_aarch64.whl
+sudo pip install -U tensorflow-1.14.0-cp35-none-linux_aarch64.whl
+wget https://developer.download.nvidia.com/compute/redist/jp/v33/tensorflow-gpu/tensorflow_gpu-1.14.0+nv19.9-cp35-cp35m-linux_aarch64.whl
+sudo pip install -U tensorflow_gpu-1.14.0+nv19.9-cp35-cp35m-linux_aarch64.whl
