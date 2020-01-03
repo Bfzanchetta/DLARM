@@ -1,3 +1,6 @@
+https://github.com/lhelontra/tensorflow-on-arm/releases
+https://github.com/lhelontra/tensorflow-on-arm/releases/tag/v2.0.0
+
 wget http://developer.download.nvidia.com/compute/redist/jp33/tensorflow-gpu/tensorflow_gpu-1.9.0+nv18.8-cp27-cp27mu-linux_aarch64.whl
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
