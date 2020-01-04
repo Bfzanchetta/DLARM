@@ -82,9 +82,30 @@ sudo tar -xf scipy-1.3.0.tar.gz
 sudo rm scipy-1.3.0.tar.gz
 cd scipy-1.3.0/
 sudo python setup.py install --user
-
-
 sudo pip install -U cffi pandas scikit-image
+sudo apt-get install -y python-sklearn
+sudo apt install -y ninja-build
+cd $B2B
+#wget https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
+#tar -xf protobuf-2.6.1.tar.gz
+#rm protobuf-2.6.1.tar.gz
+#cd protobuf-2.6.1/
+#mkdir -p pbc-aarch64
+#cd pbc-aarch64
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protobuf-all-3.11.2.tar.gz
+tar -xf protobuf-all-3.11.2.tar.gz
+rm protobuf-all-3.11.2.tar.gz
+cd protobuf-3.11.2/
+
+mkdir -p pbc-aarch64
+cd pbc-aarch64
+
+# clone and install MxNet from source
+cd $B2B
+wget https://github.com/apache/incubator-mxnet/releases/download/1.4.1/apache-mxnet-src-1.4.1-incubating.tar.gz
+tar -xf apache-mxnet-src-1.4.1-incubating.tar.gz
+sudo rm apache-mxnet-src-1.4.1-incubating.tar.gz
+cd apache-mxnet-src-1.4.1-incubating/
 
 # Routine to download and install PyTorch, TensorFlow and Keras
 apt-get install openjdk-8-jdk
