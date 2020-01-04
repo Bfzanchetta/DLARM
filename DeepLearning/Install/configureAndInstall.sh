@@ -92,6 +92,8 @@ cd $B2B
 #cd protobuf-2.6.1/
 #mkdir -p pbc-aarch64
 #cd pbc-aarch64
+#proto links: https://github.com/protocolbuffers/protobuf/issues/3912
+#proto links: https://criu.org/Build_protobuf
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protobuf-all-3.11.2.tar.gz
 tar -xf protobuf-all-3.11.2.tar.gz
 rm protobuf-all-3.11.2.tar.gz
@@ -118,3 +120,6 @@ wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.14.0/te
 sudo pip install -U tensorflow-1.14.0-cp35-none-linux_aarch64.whl
 wget https://developer.download.nvidia.com/compute/redist/jp/v33/tensorflow-gpu/tensorflow_gpu-1.14.0+nv19.9-cp35-cp35m-linux_aarch64.whl
 sudo pip install -U tensorflow_gpu-1.14.0+nv19.9-cp35-cp35m-linux_aarch64.whl
+#tensorflow import error fix: https://github.com/tensorflow/tensorflow/issues/22342
+
+#horovod example: https://github.com/horovod/horovod/blob/master/docs/mxnet.rst
