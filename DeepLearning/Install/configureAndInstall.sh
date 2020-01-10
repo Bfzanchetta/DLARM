@@ -57,7 +57,7 @@ echo "alias python3=python3.5" >> ~/.bashrc ; source ~/.bashrc
 echo "alias sudo='sudo '" >> ~/.bashrc ; source ~/.bashrc
 sudo python3.5 /usr/local/lib/python3.5/site-packages/easy_install.py pip
 sudo pip install --upgrade pip
-
+source ~/.bashrc
 
 # Routine to download and install packages at pre-determined folders
 # MxNet from Source #
