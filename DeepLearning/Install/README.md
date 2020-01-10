@@ -31,3 +31,27 @@ pytorch_install.sh: Trustworthy script for PyTorch installation on TX2 from sour
 sound.sh: Guide to install Librosa and MxNet sound package.
 tensorflow_install.sh: Old guide to install TensorFlow on TX2, needs review.
 unified.sh: First attempt to unite mxnet_install.sh and pytorch_install.sh.
+
+
+Horovod 0.16.2 Installation:
+Requires: GCC version 5.X and above.
+
+| PACKAGE       | tensorflow==1.14.0 | keras==2.2.4 | torch==1.1.0 | torchvision | pyspark | >=mxnet 1.4.1 |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| CUDA |  |  |  |  |  |  |
+| cuDNN |  |  |  |  |  |  |
+| OpenCV |  |  |  |  |  |  |
+| Pip |  |  |  |  |  |  |
+| numpy |  |  |  |  |  |  |
+| scipy |  |  |  |  |  |  |
+| matplotlib |  |  |  |  |  |  |
+| scikit-image |  |  |  |  |  |  |
+| python-sklearn |  |  |  |  |  |  |
+| protobuf |  |  |  |  |  |  |
+| LLVM |  |  |  |  |  |  |
+
+
+
+ 
+ 
+
