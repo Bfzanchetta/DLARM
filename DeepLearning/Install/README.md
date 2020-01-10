@@ -41,17 +41,9 @@ Requires: GCC version 5.X and above.
 | CUDA |  |  |  |  |  |  |
 | cuDNN |  |  |  |  |  |  |
 | OpenCV |  |  |  |  |  |  |
-| Pip |  |  |  |  |  |  |
 | numpy |  |  |  |  |  |  |
 | scipy |  |  |  |  |  |  |
 | matplotlib |  |  |  |  |  |  |
 | scikit-image |  |  |  |  |  |  |
 | python-sklearn |  |  |  |  |  |  |
 | protobuf |  |  |  |  |  |  |
-| LLVM |  |  |  |  |  |  |
-
-
-
- 
- 
-
