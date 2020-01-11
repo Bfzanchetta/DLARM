@@ -77,7 +77,7 @@ sudo pip install -U matplotlib==2.2.3
 sudo apt install -y libffi-dev
 ##to-do: solve scipy installation error
 cd $B2B;
-git clone https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
+wget https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
 sudo tar -xf scipy-1.3.0.tar.gz
 sudo rm scipy-1.3.0.tar.gz
 cd scipy-1.3.0/
