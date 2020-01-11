@@ -68,12 +68,12 @@ sudo apt install -y liblapack3 libopenblas-base libopenblas-dev libatlas-base-de
 sudo apt install -y liblapacke-dev checkinstall # For OpenCV
 sudo apt-get install -y autoconf automake libtool curl make g++ unzip apt-utils git alien htop build-essential libopencv-dev graphviz
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-dev libhdf5-serial-dev protobuf-compiler libprotobuf-java
-sudo pip install -U Cython
-sudo pip install -U protobuf numpy
+sudo pip3 install -U Cython
+sudo pip3 install -U protobuf numpy
 sudo apt-get install -y libfreetype6-dev pkg-config libpng-dev libjpeg-dev zlib1g-dev
 sudo apt-get install -y gfortran
 sudo apt-get install -y python3-matplotlib libcanberra-gtk-module
-sudo pip install -U matplotlib==2.2.3
+sudo pip3 install -U matplotlib==2.2.3
 sudo apt install -y libffi-dev
 ##to-do: solve scipy installation error
 cd $B2B;
@@ -81,8 +81,8 @@ wget https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
 sudo tar -xf scipy-1.3.0.tar.gz
 sudo rm scipy-1.3.0.tar.gz
 cd scipy-1.3.0/
-sudo python setup.py install --user
-sudo pip install -U cffi pandas scikit-image
+sudo python3 setup.py install --user
+sudo pip3 install -U cffi pandas scikit-image
 sudo apt-get install -y python-sklearn
 sudo apt install -y ninja-build
 cd $B2B
