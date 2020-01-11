@@ -102,14 +102,30 @@ cd protobuf-3.11.2/
 mkdir -p pbc-aarch64
 cd pbc-aarch64
 
-
+#nccl
 sudo apt-get install -y build-essential devscripts debhelper fakeroot
 git clone https://github.com/nvidia/nccl
 cd nccl
 make -j src.build
 sudo apt-get install -y libffi6 libffi-dev
-
-
+#opencv
+sudo apt install qt4-default
+mkdir -p ~/src
+cd ~/src
+wget https://github.com/opencv/opencv/archive/3.4.0.zip \ -O opencv-3.4.0.zip
+unzip opencv-3.4.0.zip
+cd ~/src/opencv-3.4.0
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D WITH_CUDA=ON -D CUDA_ARCH_BIN="6.2" -D CUDA_ARCH_PTX="" \
+        -D WITH_CUBLAS=ON -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON \
+        -D ENABLE_NEON=ON -D WITH_LIBV4L=ON -D BUILD_TESTS=OFF \
+        -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF \
+        -D WITH_QT=ON -D WITH_OPENGL=ON ..
+make -j4
+sudo make install
+#pytorch
 wget https://github.com/pytorch/pytorch/archive/v1.1.0.tar.gz
 tar -xf v1.1.0.tar.gz
 rm v1.1.0.tar.gz
