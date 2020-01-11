@@ -99,9 +99,17 @@ wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/proto
 tar -xf protobuf-all-3.11.2.tar.gz
 rm protobuf-all-3.11.2.tar.gz
 cd protobuf-3.11.2/
-
 mkdir -p pbc-aarch64
 cd pbc-aarch64
+
+
+
+wget https://github.com/pytorch/pytorch/archive/v1.1.0.tar.gz
+tar -xf v1.1.0.tar.gz
+rm v1.1.0.tar.gz
+cd pytorch-1.1.0
+
+
 
 # clone and install MxNet from source
 cd $B2B
