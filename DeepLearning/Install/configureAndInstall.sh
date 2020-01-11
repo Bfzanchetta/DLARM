@@ -75,15 +75,16 @@ sudo apt-get install -y gfortran
 sudo apt-get install -y python3-matplotlib libcanberra-gtk-module
 sudo pip3 install -U matplotlib==2.2.3
 sudo apt install -y libffi-dev
+sudo apt-get install python3-scipy 
 ##to-do: solve scipy installation error
 cd $B2B;
-wget https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
-sudo tar -xf scipy-1.3.0.tar.gz
-sudo rm scipy-1.3.0.tar.gz
-cd scipy-1.3.0/
-sudo python3 setup.py install --user
+#wget https://github.com/scipy/scipy/releases/download/v1.3.0/scipy-1.3.0.tar.gz
+#sudo tar -xf scipy-1.3.0.tar.gz
+#sudo rm scipy-1.3.0.tar.gz
+#cd scipy-1.3.0/
+#sudo python3 setup.py install --user
 sudo pip3 install -U cffi pandas scikit-image
-sudo apt-get install -y python-sklearn
+sudo apt-get install -y python3-sklearn
 sudo apt install -y ninja-build
 cd $B2B
 #wget https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
