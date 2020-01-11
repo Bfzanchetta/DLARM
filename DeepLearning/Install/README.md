@@ -36,6 +36,8 @@ unified.sh: First attempt to unite mxnet_install.sh and pytorch_install.sh.
 Horovod 0.16.2 Installation:
 Requires: GCC version 5.X and above.
 
+numpy 1.18.1
+
 | PACKAGE       | tensorflow==1.14.0 | keras==2.2.4 | torch==1.1.0 | torchvision | pyspark | >=mxnet 1.4.1 |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | CUDA |  |  |  |  |  |  |
