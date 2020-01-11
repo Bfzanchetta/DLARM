@@ -72,7 +72,7 @@ sudo pip install -U Cython
 sudo pip install -U protobuf numpy
 sudo apt-get install -y libfreetype6-dev pkg-config libpng-dev libjpeg-dev zlib1g-dev
 sudo apt-get install -y gfortran
-sudo apt-get install -y python-matplotlib libcanberra-gtk-module
+sudo apt-get install -y python3-matplotlib libcanberra-gtk-module
 sudo pip install -U matplotlib==2.2.3
 sudo apt install -y libffi-dev
 ##to-do: solve scipy installation error
