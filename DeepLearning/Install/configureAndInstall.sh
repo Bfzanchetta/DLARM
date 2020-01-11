@@ -103,6 +103,12 @@ mkdir -p pbc-aarch64
 cd pbc-aarch64
 
 
+sudo apt-get install -y build-essential devscripts debhelper fakeroot
+git clone https://github.com/nvidia/nccl
+cd nccl
+make -j src.build
+sudo apt-get install -y libffi6 libffi-dev
+
 
 wget https://github.com/pytorch/pytorch/archive/v1.1.0.tar.gz
 tar -xf v1.1.0.tar.gz
