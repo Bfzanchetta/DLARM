@@ -38,6 +38,8 @@ Requires: GCC version 5.X and above.
 
 numpy 1.18.1
 
+numpy<=1.15.2,>=1.8.2', 'requests>=2.20.0,<3', 'graphviz<0.9.0,>=0.8.1'
+
 | PACKAGE       | tensorflow==1.14.0 | keras==2.2.4 | torch==1.1.0 | torchvision | pyspark | >=mxnet 1.4.1 |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | CUDA |  |  |  |  |  |  |
