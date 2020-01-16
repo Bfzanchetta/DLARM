@@ -51,3 +51,8 @@ numpy<=1.15.2,>=1.8.2', 'requests>=2.20.0,<3', 'graphviz<0.9.0,>=0.8.1'
 | scikit-image |  |  |  |  |  |  |
 | python-sklearn |  |  |  |  |  |  |
 | protobuf |  |  |  |  |  |  |
+
+https://github.com/AastaNV/JEP/tree/master/script/TensorFlow_1.6
+http://comp.photo777.org/
+https://gist.github.com/dusty-nv/ef2b372301c00c0a9d3203e42fd83426
+https://horovod.readthedocs.io/en/latest/contributors_include.html
