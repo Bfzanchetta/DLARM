@@ -9,10 +9,7 @@
 
 | PACKAGE       | VERSION FOR MxNet | VERSION FOR PyTorch |
 | ------------- | ------------- | ------------- |
-| CUDA |  |  |
-| cuDNN |  |  |
-| OpenCV |  |  |
-| Num|  |  |
+| Numa |  |  |
 | Pip |  |  |
 | numpy |  |  |
 | scipy |  |  |
@@ -20,6 +17,7 @@
 | scikit-image |  |  |
 | python-sklearn |  |  |
 | protobuf |  |  |
+| *PACKAGES BELOW* | *ONLY USED* | *FOR AUDIO* |
 | LLVM |  |  |
 | llvmlite |  |  |
 
