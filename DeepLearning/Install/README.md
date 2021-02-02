@@ -6,6 +6,8 @@
 | cuDNN | 7.3.1.28-1+cuda10.0 | 8.0.0 |
 | OpenCV | 3.3.1 | 3.4.8 |
 | Protobuf | libprotoc 3.0.0 | libprotoc 3.8.0 |
+| NCCL | ----------- | 2.7.5-ga |
+| oMPI | ----------- | 3.0.0 |
 
 | PACKAGE       | VERSION FOR MxNet | VERSION FOR PyTorch |
 | ------------- | ------------- | ------------- |
