@@ -5,7 +5,7 @@
 | CUDA | 10.0.166-1 | 10.2.89 |
 | cuDNN | 7.3.1.28-1+cuda10.0 | 8.0.0 |
 | OpenCV | 3.3.1 | 3.4.8 |
-| Protobuf | libprotoc 3.0.0 |  |
+| Protobuf | libprotoc 3.0.0 | libprotoc 3.8.0 |
 
 | PACKAGE       | VERSION FOR MxNet | VERSION FOR PyTorch |
 | ------------- | ------------- | ------------- |
