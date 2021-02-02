@@ -8,6 +8,8 @@
 | Protobuf | libprotoc 3.0.0 | libprotoc 3.8.0 |
 | NCCL | ----------- | 2.7.5-ga |
 | oMPI | ----------- | 3.0.0 |
+| Java | ----------- | 8u281 |
+| Python | 2.7 | 3.6.9 |
 
 | PACKAGE       | VERSION FOR MxNet | VERSION FOR PyTorch |
 | ------------- | ------------- | ------------- |
