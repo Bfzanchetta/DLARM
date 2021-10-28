@@ -9,9 +9,11 @@ Also, this repo contains famous CNN models from MxNet and PyTorch.
 - [x] Provide install guides and tips for ARM users. 
 - [x] Implement famous models on MxNet and PyTorch.
 - [x] Perform experimentations with all models under controlled environment.
-- [ ] Organize results and plot graphs.
-- [ ] Compare performance and draw results.
-- [ ] Write dissertation and article.
+- [x] Organize results and plot graphs.
+- [x] Compare performance and draw results.
+- [x] Write dissertation and article.
+- [ ] Create presentation.
+- [ ] Defend presentation.
 
 # Introducing Myself #
 
