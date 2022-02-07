@@ -1,0 +1,30 @@
+Epoch 0. Loss: 2.3024157230089486, Train_acc 0.161, Test_acc 0.168
+[Epoch 0] training: err-top1=0.896462 err-top5=0.499077
+[Epoch 0] time cost: 42963.975832
+Epoch 1. Loss: 2.3016936679834754, Train_acc 0.128307692308, Test_acc 0.112
+[Epoch 1] training: err-top1=0.885846 err-top5=0.476077
+[Epoch 1] time cost: 43013.386534
+Epoch 2. Loss: 2.3004080291400717, Train_acc 0.190307692308, Test_acc 0.198
+[Epoch 2] training: err-top1=0.878846 err-top5=0.459462
+[Epoch 2] time cost: 43002.922678
+Epoch 3. Loss: 2.296666141233394, Train_acc 0.191153846154, Test_acc 0.172
+[Epoch 3] training: err-top1=0.867904 err-top5=0.442731
+[Epoch 3] time cost: 43010.947693
+Epoch 4. Loss: 2.2860362039697786, Train_acc 0.195076923077, Test_acc 0.188
+[Epoch 4] training: err-top1=0.857646 err-top5=0.428969
+[Epoch 4] time cost: 43008.221178
+Epoch 5. Loss: 2.148423614907882, Train_acc 0.201923076923, Test_acc 0.188
+[Epoch 5] training: err-top1=0.849128 err-top5=0.416667
+[Epoch 5] time cost: 43004.805791
+Epoch 6. Loss: 2.063553332085097, Train_acc 0.253692307692, Test_acc 0.282
+[Epoch 6] training: err-top1=0.839176 err-top5=0.401824
+[Epoch 6] time cost: 42997.195452
+Epoch 7. Loss: 1.9353634904278068, Train_acc 0.269538461538, Test_acc 0.274
+[Epoch 7] training: err-top1=0.825317 err-top5=0.384000
+[Epoch 7] time cost: 43007.329495
+Epoch 8. Loss: 1.876446498236001, Train_acc 0.350923076923, Test_acc 0.346
+[Epoch 8] training: err-top1=0.809248 err-top5=0.363009
+[Epoch 8] time cost: 43002.492651
+Epoch 9. Loss: 1.8287525135329772, Train_acc 0.369538461538, Test_acc 0.376
+[Epoch 9] training: err-top1=0.793477 err-top5=0.343023
+[Epoch 9] time cost: 43010.776449
