@@ -1,0 +1,16 @@
+Link para preparação de imagenet: (com transformações que nem no pytorch)
+https://gluon-cv.mxnet.io/build/examples_datasets/imagenet.html
+
+tutorial com whell para mxnet para nano:
+https://devtalk.nvidia.com/default/topic/1049293/jetson-nano/i-was-unable-to-compile-and-install-mxnet-on-the-jetson-nano-is-there-an-official-installation-tutorial-/1
+
+outros links:
+https://gluon-cv.mxnet.io/
+https://github.com/dmlc/gluon-cv
+
+O que eu fiz no dia 24/05/2019:
+Instalei várias versões de Numpy na tentativa de rodar o Imagenet
+Preparei o Imagenet no modelo .idx, .rec, mas precisa do gluoncv.
+A jetsontx2-1 está com as dependências de python totalmente desconfiguradas do ordinário da jetson-tx2-3
+Tentei instalar gluoncv a todo custo antes de tentar instalar a wheel file.
+Também é interessante tentar instalar gluon (não gluoncv) e ver o que dá para ser feito com a API dataset dele
