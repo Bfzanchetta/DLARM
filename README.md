@@ -26,5 +26,11 @@ If you would like to help with any points of this repo or desires to ask somethi
 I have also taken the liberty of investigating Big Data frameworks and how they might be used in Jetson TX2.
 Some of the download/configuration scripts are also contained in this repo, even though it is not the main focus of this work.
 
+
+# Other Useful Links #
+-https://github.com/jetsonhacks/buildOpenCVTX2
+
+
 Scholar Profile: https://scholar.google.com.br/citations?user=NFaKGWoAAAAJ&hl=pt-BR&oi=ao
+
 ###### Enjoy! ######
