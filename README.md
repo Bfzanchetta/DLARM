@@ -12,8 +12,9 @@ Also, this repo contains famous CNN models from MxNet and PyTorch.
 - [x] Organize results and plot graphs.
 - [x] Compare performance and draw results.
 - [x] Write dissertation and article.
-- [ ] Create presentation.
-- [ ] Defend presentation.
+- [x] Create presentation.
+- [x] Defend presentation.
+- [x] MsC title obtained in 11/01/2022
 
 # Introducing Myself #
 
